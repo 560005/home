@@ -3,12 +3,9 @@ FROM alpine:latest
 # Install nginx
 RUN apk add --no-cache nginx
 
-# Create nginx user and group
-RUN adduser -D -s /bin/sh nginx
-
 # Install Zola
 RUN apk add --no-cache wget tar
-RUN wget -O zola.tar.gz https://github.com/getzola/zola/releases/download/v0.18.0/zola-v0.18.0-x86_64-unknown-linux-musl.tar.gz
+RUN wget -O zola.tar.gz https://github.com/getzola/zola/releases/download/v0.21.0/zola-v0.21.0-x86_64-unknown-linux-musl.tar.gz
 RUN tar -xzf zola.tar.gz
 RUN mv zola /usr/local/bin/
 RUN chmod +x /usr/local/bin/zola

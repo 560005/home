@@ -66,9 +66,10 @@ body { font-family: verdana, arial, helvetica, sans-serif; font-size: 13px; line
 .shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
 /* Links */
-a { color: #00008b; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: #00008b; text-decoration: underline; }
 a:visited { color: #800080; }
+.no-underline { text-decoration: none; }
+.no-underline:hover { text-decoration: underline; }
 
 /* Headings */
 h1 { font-size: 24px; color: #800080; margin: 16px 0; font-weight: bold; }

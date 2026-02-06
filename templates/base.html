@@ -31,18 +31,26 @@
     <footer class="mt-8 py-4 border-t text-center text-xs text-gray bg-gray">
         <p>&copy; 2024 560005.town - Community directory for East Bangalore</p>
     </footer>
-    <script src="{{ get_url(path="elasticlunr.min.js") }}"></script>
-    <script src="{{ get_url(path="search_index.en.js") }}"></script>
     <script>
     (function() {
       var input = document.getElementById("search-input");
       var results = document.getElementById("search-results");
-      var index;
+      var index, loaded = false;
 
-      function initIndex() {
-        if (window.searchIndex) {
-          index = elasticlunr.Index.load(window.searchIndex);
-        }
+      function loadSearch() {
+        if (loaded) return;
+        loaded = true;
+        var s1 = document.createElement("script");
+        s1.src = "{{ get_url(path="elasticlunr.min.js") }}";
+        s1.onload = function() {
+          var s2 = document.createElement("script");
+          s2.src = "{{ get_url(path="search_index.en.js") }}";
+          s2.onload = function() {
+            if (window.searchIndex) index = elasticlunr.Index.load(window.searchIndex);
+          };
+          document.body.appendChild(s2);
+        };
+        document.body.appendChild(s1);
       }
 
       function doSearch() {
@@ -71,15 +79,11 @@
         results.style.display = "block";
       }
 
+      input.addEventListener("focus", loadSearch);
       input.addEventListener("input", doSearch);
-      input.addEventListener("focus", function() { if (input.value.trim().length >= 2) doSearch(); });
       document.addEventListener("click", function(e) {
-        if (!results.contains(e.target) && e.target !== input) {
-          results.style.display = "none";
-        }
+        if (!results.contains(e.target) && e.target !== input) results.style.display = "none";
       });
-
-      initIndex();
     })();
     </script>
 </body>

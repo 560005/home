@@ -49,8 +49,13 @@ http { \
         server_name _; \
         root /var/lib/nginx/html; \
         index index.html; \
+        location ~* \.(css|js|jpg|jpeg|png|gif|ico|woff|woff2)$ { \
+            expires 1y; \
+            add_header Cache-Control "public, immutable"; \
+        } \
         location / { \
             try_files $uri $uri/ /index.html; \
+            add_header Link "</style.css>; rel=preload; as=style"; \
         } \
     } \
 }' > /etc/nginx/nginx.conf

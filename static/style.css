@@ -22,18 +22,17 @@ footer {
   width: 100%;
 }
 
+/* Space between children */
+.space-y-2 > * + * {
+  margin-top: 8px;
+}
+
 /* Colors */
 .text-blue {
   color: #00008b;
 }
-.text-purple {
-  color: #800080;
-}
 .text-gray {
   color: #666;
-}
-.text-black {
-  color: #000;
 }
 .bg-white {
   background: #fff;
@@ -49,17 +48,8 @@ footer {
 .text-sm {
   font-size: 12px;
 }
-.text-base {
-  font-size: 13px;
-}
-.text-lg {
-  font-size: 16px;
-}
 .text-xl {
   font-size: 18px;
-}
-.text-2xl {
-  font-size: 24px;
 }
 .font-bold {
   font-weight: bold;
@@ -69,55 +59,26 @@ footer {
 .m-0 {
   margin: 0;
 }
-.mt-1 {
-  margin-top: 4px;
-}
-.mt-2 {
-  margin-top: 8px;
-}
 .mt-4 {
   margin-top: 16px;
 }
-.mt-8 {
-  margin-top: 32px;
-}
-.mb-1 {
-  margin-bottom: 4px;
-}
-.mb-2 {
-  margin-bottom: 8px;
-}
 .mb-4 {
   margin-bottom: 16px;
-}
-.ml-2 {
-  margin-left: 8px;
 }
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
 }
-.p-2 {
-  padding: 8px;
-}
 .p-4 {
   padding: 16px;
 }
-.px-2 {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.px-4 {
-  padding-left: 16px;
-  padding-right: 16px;
+.px-3 {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 .py-1 {
   padding-top: 4px;
   padding-bottom: 4px;
-}
-.py-2 {
-  padding-top: 8px;
-  padding-bottom: 8px;
 }
 .py-3 {
   padding-top: 12px;
@@ -128,29 +89,26 @@ footer {
 .flex {
   display: flex;
 }
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
 .justify-between {
   justify-content: space-between;
 }
 .items-center {
   align-items: center;
 }
-.block {
-  display: block;
+.gap-2 {
+  gap: 8px;
 }
-.inline-block {
-  display: inline-block;
-}
-.hidden {
-  display: none;
-}
-.w-full {
-  width: 100%;
+.gap-8 {
+  gap: 32px;
 }
 .max-w {
   max-width: 800px;
-}
-.min-h-screen {
-  min-height: calc(100vh - 120px);
 }
 .relative {
   position: relative;
@@ -204,12 +162,6 @@ a {
 }
 a:visited {
   color: #800080;
-}
-.no-underline {
-  text-decoration: none;
-}
-.no-underline:hover {
-  text-decoration: underline;
 }
 
 /* Headings */
@@ -278,9 +230,6 @@ p {
 #search-results {
   display: none;
 }
-#search-results.active {
-  display: block;
-}
 
 .search-result {
   display: block;
@@ -314,9 +263,6 @@ p {
     flex-direction: column;
     gap: 8px;
     text-align: center;
-  }
-  .text-2xl {
-    font-size: 20px;
   }
   body {
     font-size: 12px;

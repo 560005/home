@@ -52,7 +52,8 @@
           results.style.display = "none";
           return;
         }
-        var hits = index.search(query, { expand: true });
+        var hits = index.search(query, { expand: false, bool: "AND" })
+          .filter(function(hit) { return hit.score > 0.5; });
         if (hits.length === 0) {
           results.innerHTML = "<div class='search-result'>No results found.</div>";
         } else {

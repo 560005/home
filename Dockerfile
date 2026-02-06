@@ -55,7 +55,6 @@ http { \
         } \
         location / { \
             try_files $uri $uri/ /index.html; \
-            add_header Link "</style.css>; rel=preload; as=style"; \
         } \
     } \
 }' > /etc/nginx/nginx.conf

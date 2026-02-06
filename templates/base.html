@@ -12,8 +12,7 @@
         <nav class="flex justify-between items-center max-w mx-auto sm-flex-col">
             <a href="/" class="text-xl font-bold text-blue">560005.town</a>
             <div class="text-sm">
-                <a href="/">Home</a>
-                <a href="/c/" class="ml-2">Categories</a>
+                <a href="/post/">Request a listing</a>
             </div>
         </nav>
         <div class="max-w mx-auto mt-2 relative">
@@ -22,15 +21,17 @@
         </div>
     </header>
 
-    <main class="max-w mx-auto px-4 min-h-screen">
+    <main class="max-w mx-auto">
         {% block content %}
         {{ page.content | safe }}
         {% endblock %}
     </main>
 
-    <footer class="mt-8 py-4 border-t text-center text-xs text-gray bg-gray">
-        <p>&copy; 2024 560005.town - Community directory for East Bangalore</p>
+    <footer class="py-3 px-4 border-t text-xs text-gray flex justify-between">
+        <span>560005.town · last updated on {{ now() | date(format="%b %d, %Y") }}</span>
+        <a href="/about/">about</a>
     </footer>
+
     <script>
     (function() {
       var input = document.getElementById("search-input");

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ page.title | default(value="560005.town") }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ page.description | default(value="Community directory for East Bangalore") }}{% endblock %}">
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">560005.town</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/c/">Categories</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        {{ page.content | safe }}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 560005.town - Community directory for East Bangalore</p>
+    </footer>
+</body>
+</html>

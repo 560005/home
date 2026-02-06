@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="listing-page">
+    <nav class="breadcrumb">
+        <a href="/">Home</a> &gt; 
+        <a href="/c/{{ page.extra.category_slug }}/">{{ page.extra.category_slug }}</a> &gt; 
+        <span>{{ page.extra.listing_name }}</span>
+    </nav>
+    
+    {% if page.extra.verified %}
+    <div class="verified-badge">✓ Verified listing</div>
+    {% endif %}
+    
+    {{ page.content | safe }}
+    
+    {% if page.extra.latitude and page.extra.longitude %}
+    <div class="map-container">
+        <div id="map" data-lat="{{ page.extra.latitude }}" data-lng="{{ page.extra.longitude }}"></div>
+    </div>
+    {% endif %}
+</div>
+
+{% if page.extra.latitude and page.extra.longitude %}
+<script>
+// Simple map initialization - you can replace this with your preferred map library
+function initMap() {
+    const mapEl = document.getElementById('map');
+    if (mapEl) {
+        const lat = parseFloat(mapEl.dataset.lat);
+        const lng = parseFloat(mapEl.dataset.lng);
+        mapEl.innerHTML = `<p>📍 Location: ${lat}, ${lng}</p>`;
+        // Add your preferred mapping library (Leaflet, Google Maps, etc.) here
+    }
+}
+document.addEventListener('DOMContentLoaded', initMap);
+</script>
+{% endif %}
+{% endblock %}

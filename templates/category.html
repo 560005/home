@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="category-page">
+    <nav class="breadcrumb">
+        <a href="/">Home</a> &gt; <span>{{ section.extra.category_name }}</span>
+    </nav>
+    
+    {{ section.content | safe }}
+</div>
+{% endblock %}

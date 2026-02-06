@@ -1,0 +1,41 @@
+#!/usr/bin/env bb
+
+(ns download-data
+  (:require [cheshire.core :as json]
+            [babashka.curl :as curl]
+            [clojure.string :as str]
+            [clojure.java.io :as io]))
+
+(defn env [arg]
+  (System/getenv arg))
+
+(defn validate-arg [arg default throw?]
+  (or (env arg)
+      (if throw? (throw (ex-info (format "%s env var required" arg) {})) default)))
+
+(def datasite-base (validate-arg "DATASITE_URL" nil true))
+(def db-name (validate-arg "DATASETTE_DB_NAME" "data" false))
+(def out-dir (validate-arg "OUT_DIR" "content" false))
+(def data-dir (validate-arg "DATA_DIR" "data" false))
+(def dump-typesense? (= "true" (env "TYPESENSE_DUMP")))
+(def tables ["categories" "tags" "listing_tags" "listings"])
+
+(defn api-url
+  "Construct Datasette API URL for table name. Uses _shape=objects to get array of objects."
+  [table]
+  (format "%s/%s/%s.json?_shape=objects"
+          (str/replace datasite-base #"/$" "")
+          db-name
+          table))
+
+(defn http-get-json [url]
+  (let [resp (curl/get url {:throw false})]
+    (if (<= 200 (:status resp) 299)
+      (json/parse-string (:body resp) true)
+      (throw (ex-info "Failed to fetch" {:url url :status (:status resp) :body (:body resp)})))))
+
+(defn fetch-data [table]
+  (println (format "Fetchings %s..." table))
+  (prn (http-get-json (api-url table))))
+
+(doall (pmap fetch-data tables))

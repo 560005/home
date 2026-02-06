@@ -8,27 +8,27 @@
     <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/" class="logo">560005.town</a>
-            <div class="nav-links">
+    <header class="border-b py-2 px-4 mb-4">
+        <nav class="flex justify-between items-center max-w mx-auto sm-flex-col">
+            <a href="/" class="text-xl font-bold text-blue">560005.town</a>
+            <div class="text-sm">
                 <a href="/">Home</a>
-                <a href="/c/">Categories</a>
+                <a href="/c/" class="ml-2">Categories</a>
             </div>
         </nav>
-        <div class="search-bar">
+        <div class="max-w mx-auto mt-2 relative">
             <input type="text" id="search-input" placeholder="Search listings..." autocomplete="off">
-            <div id="search-results"></div>
+            <div id="search-results" class="absolute top-full left-0 right-0 bg-white border shadow max-h-96 overflow-auto z-10"></div>
         </div>
     </header>
-    
-    <main>
+
+    <main class="max-w mx-auto px-4 min-h-screen">
         {% block content %}
         {{ page.content | safe }}
         {% endblock %}
     </main>
-    
-    <footer>
+
+    <footer class="mt-8 py-4 border-t text-center text-xs text-gray bg-gray">
         <p>&copy; 2024 560005.town - Community directory for East Bangalore</p>
     </footer>
     <script src="{{ get_url(path="elasticlunr.min.js") }}"></script>
@@ -65,7 +65,7 @@
             var url = hit.ref.replace(/^https?:\/\/[^\/]+/, "");
             return "<a class='search-result' href='" + url + "'>" +
               "<strong>" + title + "</strong>" +
-              "<span>" + snippet + "…</span></a>";
+              "<span>" + snippet + "...</span></a>";
           }).join("");
         }
         results.style.display = "block";

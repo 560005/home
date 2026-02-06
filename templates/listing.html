@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="listing-page">
-    <nav class="breadcrumb">
-        <a href="/">Home</a> &gt; 
-        <a href="/c/{{ page.extra.category_slug }}/">{{ page.extra.category_slug }}</a> &gt; 
+<div>
+    <nav class="text-xs text-gray mb-4 py-1 border-b border-light">
+        <a href="/">Home</a> &gt;
+        <a href="/c/{{ page.extra.category_slug }}/">{{ page.extra.category_slug }}</a> &gt;
         <span>{{ page.extra.listing_name }}</span>
     </nav>
-    
+
     {% if page.extra.verified %}
-    <div class="verified-badge">✓ Verified listing</div>
+    <div class="tag mb-4">✓ Verified</div>
     {% endif %}
-    
+
     {{ page.content | safe }}
-    
+
     {% if page.extra.latitude and page.extra.longitude %}
-    <div class="map-container">
+    <div class="mt-4 p-4 bg-gray border rounded">
         <div id="map" data-lat="{{ page.extra.latitude }}" data-lng="{{ page.extra.longitude }}"></div>
     </div>
     {% endif %}

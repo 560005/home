@@ -2,12 +2,11 @@
 title = "560005.town - East Bangalore Directory"
 description = "Community-maintained listings of local services, people, and places"
 template = "index.html"
+
+[extra]
+heading = "East Bangalore Directory"
+subtitle = "Welcome to the community directory for East Bangalore"
 +++
-
-<h1 class="m-0">East Bangalore Directory</h1>
-Welcome to the community directory for East Bangalore
-
----
 
 <div class="flex flex-row justify-between gap-8 sm-flex-col">
 

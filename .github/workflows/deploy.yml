@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [ deploy ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Babashka
+        env:
+          BABASHKA_VERSION: 1.12.208
+        run: |
+          curl -sLO https://github.com/babashka/babashka/releases/download/v${{ env.BABASHKA_VERSION }}/babashka-${{ env.BABASHKA_VERSION }}-linux-amd64.tar.gz
+          sudo tar -xzf babashka-${{ env.BABASHKA_VERSION }}-linux-amd64.tar.gz -C /usr/local/bin --strip-components=0
+          rm -f babashka-${{ env.BABASHKA_VERSION }}-linux-amd64.tar.gz
+
+      - name: Generate site content
+        run: bb bin/generate-site
+
+      - name: Verify content generated
+        run: test -d content/c && find content -name '*.md' | head -20
+
+      - name: Set up Fly CLI
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy to Fly
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

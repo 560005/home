@@ -3,9 +3,9 @@
 {% block content %}
 <div class="tag-page">
     <nav class="breadcrumb">
-        <a href="/">Home</a> &gt; <span>#{{ section.extra.tag_name }}</span>
+        <a href="/">Home</a> &gt; <span>#{{ page.extra.tag_name }}</span>
     </nav>
     
-    {{ section.content | safe }}
+    {{ page.content | safe }}
 </div>
 {% endblock %}

@@ -252,6 +252,13 @@ p {
   margin-top: 2px;
 }
 
+/* Index grid */
+.index-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
 /* Map */
 #map {
   height: 200px;
@@ -263,6 +270,9 @@ p {
     flex-direction: column;
     gap: 8px;
     text-align: center;
+  }
+  .index-grid {
+    grid-template-columns: 1fr;
   }
   body {
     font-size: 12px;

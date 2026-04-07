@@ -183,20 +183,24 @@
                  "*No listings found with this tag.*\n")))))
 
 (defn generate-index-page [categories tags]
-  (let [fm (frontmatter
-            {:title       "560005.town - East Bangalore Directory"
-             :description "Community-maintained listings of local services, people, and places"
-             :template    "index.html"})]
-    (spit (str content-dir "/_index.md")
-          (str fm "\n# East Bangalore Directory\n\n"
-               "Welcome to the community directory for East Bangalore.\n\n"
-               "## Categories\n\n"
-               (->> categories
-                    (map (fn [c] (str "- [" (:name c) "](/c/" (:slug c) "/) *(" (:listing_count c) " listings)*\n")))
-                    (str/join ""))
-               "\n## Tags\n\n"
-               (->> tags (take 20) (map #(str "[" (:tag %) "](/t/" (slug (:tag %)) "/)")) (str/join " "))
-               "\n"))))
+  (let [cats-toml (->> categories
+                       (map (fn [c] (str "{name = " (toml-value (:name c))
+                                         ", slug = " (toml-value (:slug c))
+                                         ", count = " (:listing_count c) "}")))
+                       (str/join ", "))
+        tags-toml (->> tags
+                       (map (fn [t] (str "{name = " (toml-value (:tag t))
+                                         ", slug = " (toml-value (slug (:tag t))) "}")))
+                       (str/join ", "))
+        fm (str "+++\n"
+                "title = \"560005.town - East Bangalore Directory\"\n"
+                "description = \"Community-maintained listings of local services, people, and places\"\n"
+                "template = \"index.html\"\n"
+                "\n[extra]\n"
+                "categories = [" cats-toml "]\n"
+                "tags = [" tags-toml "]\n"
+                "+++\n")]
+    (spit (str content-dir "/_index.md") fm)))
 
 ;; --- Main ---
 

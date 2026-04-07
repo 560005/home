@@ -8,11 +8,31 @@
         <span>{{ page.extra.listing_name }}</span>
     </nav>
 
+    <h1>{{ page.extra.listing_name }}</h1>
+
     {% if page.extra.verified_by %}
     <div class="tag mb-4">✓ Verified by {{ page.extra.verified_by }}</div>
     {% endif %}
 
-    {{ page.content | safe }}
+    {% if page.extra.listing_description %}
+    <p>{{ page.extra.listing_description }}</p>
+    {% endif %}
+
+    {% if page.extra.phone %}
+    <p>📞 {{ page.extra.phone }}</p>
+    {% endif %}
+
+    {% if page.extra.address %}
+    <p>📍 {{ page.extra.address }}</p>
+    {% endif %}
+
+    {% if page.extra.tags %}
+    <p>
+    {% for tag in page.extra.tags %}
+        <a href="/t/{{ tag | lower | replace(from=' ', to='-') }}/" class="tag">{{ tag }}</a>
+    {% endfor %}
+    </p>
+    {% endif %}
 
     {% if page.extra.latitude and page.extra.longitude %}
     <div class="mt-4 p-4 bg-gray border rounded">

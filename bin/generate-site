@@ -56,10 +56,11 @@
          {"slug" cat-slug}))
 
 (defn fetch-all-tags []
-  (query "SELECT DISTINCT json_each.value as tag
+  (query "SELECT json_each.value as tag, COUNT(*) as listing_count
           FROM listings, json_each(listings.tags)
           WHERE listings.tags IS NOT NULL
-          ORDER BY json_each.value"))
+          GROUP BY json_each.value
+          ORDER BY listing_count DESC"))
 
 (defn fetch-listings-by-tag [tag]
   (query "SELECT l.*, c.slug as category_slug, c.name as category_name
@@ -100,6 +101,7 @@
              :template    "listing.html"}
             (merge {:listing_name  (:name listing)
                     :category_slug cat-slug
+                    :listing_description (or (:description listing) "")
                     :phone         (or (:phone listing) "")
                     :address       (or (:address listing) "")
                     :tags          (or tags [])
@@ -113,19 +115,7 @@
                    (when (seq (str (:maps_link listing)))
                      {:maps_link (str (:maps_link listing))})))]
     (fs/create-dirs dir)
-    (spit (str dir "/index.md")
-          (str fm "\n"
-               (when (:description listing)
-                 (str (:description listing) "\n\n"))
-               (when (seq (:phone listing))
-                 (str "📞 " (:phone listing) "\n\n"))
-               (when (seq (:address listing))
-                 (str "📍 " (:address listing) "\n\n"))
-               (when (seq tags)
-                 (str (->> tags (map #(str "[" % "](/t/" (slug %) "/)")) (str/join " ")) "\n\n"))
-               (when (seq (:verified_by listing))
-                 (str "✓ Verified by " (:verified_by listing) "\n\n"))
-               "[← Back to " cat-slug "](/c/" cat-slug "/)\n"))))
+    (spit (str dir "/index.md") fm)))
 
 (defn generate-category-page [cat]
   (let [cat-slug (:slug cat)
@@ -189,6 +179,7 @@
                                          ", count = " (:listing_count c) "}")))
                        (str/join ", "))
         tags-toml (->> tags
+                       (take 50)
                        (map (fn [t] (str "{name = " (toml-value (:tag t))
                                          ", slug = " (toml-value (slug (:tag t))) "}")))
                        (str/join ", "))

@@ -103,13 +103,15 @@
                     :phone         (or (:phone listing) "")
                     :address       (or (:address listing) "")
                     :tags          (or tags [])
-                    :verified      (boolean (:verified listing))
+                    :verified_by   (or (:verified_by listing) "")
                     :created_at    (or (:created_at listing) "")}
                    (when (number? (:latitude listing))
                      {:latitude  (:latitude listing)
                       :longitude (:longitude listing)})
                    (when (seq (str (:geohash listing)))
-                     {:geohash (str (:geohash listing))})))]
+                     {:geohash (str (:geohash listing))})
+                   (when (seq (str (:maps_link listing)))
+                     {:maps_link (str (:maps_link listing))})))]
     (fs/create-dirs dir)
     (spit (str dir "/index.md")
           (str fm "\n"
@@ -121,8 +123,8 @@
                  (str "📍 " (:address listing) "\n\n"))
                (when (seq tags)
                  (str (->> tags (map #(str "[" % "](/t/" (slug %) "/)")) (str/join " ")) "\n\n"))
-               (when (:verified listing)
-                 "✓ Verified\n\n")
+               (when (seq (:verified_by listing))
+                 (str "✓ Verified by " (:verified_by listing) "\n\n"))
                "[← Back to " cat-slug "](/c/" cat-slug "/)\n"))))
 
 (defn generate-category-page [cat]

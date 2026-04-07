@@ -8,8 +8,8 @@
         <span>{{ page.extra.listing_name }}</span>
     </nav>
 
-    {% if page.extra.verified %}
-    <div class="tag mb-4">✓ Verified</div>
+    {% if page.extra.verified_by %}
+    <div class="tag mb-4">✓ Verified by {{ page.extra.verified_by }}</div>
     {% endif %}
 
     {{ page.content | safe }}
@@ -17,6 +17,13 @@
     {% if page.extra.latitude and page.extra.longitude %}
     <div class="mt-4 p-4 bg-gray border rounded">
         <div id="map" data-lat="{{ page.extra.latitude }}" data-lng="{{ page.extra.longitude }}"></div>
+        {% if page.extra.maps_link %}
+        <a href="{{ page.extra.maps_link }}" target="_blank" rel="noopener" class="text-xs text-blue mt-2 inline-block">View on Google Maps →</a>
+        {% endif %}
+    </div>
+    {% elif page.extra.maps_link %}
+    <div class="mt-4 p-4 bg-gray border rounded">
+        <a href="{{ page.extra.maps_link }}" target="_blank" rel="noopener" class="text-blue">View on Google Maps →</a>
     </div>
     {% endif %}
 </div>

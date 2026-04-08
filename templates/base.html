@@ -17,13 +17,24 @@
                     <a href="mailto:mail@kitallis.in?subject=New listing for 560005.town">Request a listing</a>
                 </div>
             </nav>
-            <div class="search-wrapper">
+            <div data-search class="search-wrapper">
                 <label for="search-input" class="sr-only">Search listings</label>
-                <input type="search" id="search-input" placeholder="Search listings..." autocomplete="off">
-                <div id="search-results" role="listbox" aria-label="Search results"></div>
+                <input type="search" data-search-input placeholder="Search listings..." autocomplete="off">
+                <div data-search-results role="listbox" aria-label="Search results" hidden></div>
             </div>
         </div>
     </header>
+
+    <template data-search-result-template>
+        <a class="search-result" role="option">
+            <strong data-field="title"></strong>
+            <span data-field="snippet"></span>
+        </a>
+    </template>
+
+    <template data-search-empty-template>
+        <div class="search-result">No results found.</div>
+    </template>
 
     <main class="container">
         {% block content %}
@@ -37,59 +48,145 @@
     </footer>
 
     <script>
-    (function() {
-      var input = document.getElementById("search-input");
-      var results = document.getElementById("search-results");
-      var index, loaded = false;
+    class SearchComponent {
+      constructor(selector, {
+        inputSelector,
+        resultsSelector,
+        resultTemplate,
+        emptyTemplate,
+        resultItemSelector,
+        activeClass,
+        elasticlunrUrl,
+        searchIndexUrl,
+        minQueryLength = 2,
+        maxResults = 10,
+        snippetLength = 120,
+        scoreThreshold = 0.5,
+        renderResult = null,
+      }) {
+        this.container = document.querySelector(selector);
+        if (!this.container) return;
 
-      function loadSearch() {
-        if (loaded) return;
-        loaded = true;
-        var s1 = document.createElement("script");
-        s1.src = "{{ get_url(path="elasticlunr.min.js") }}";
-        s1.onload = function() {
-          var s2 = document.createElement("script");
-          s2.src = "{{ get_url(path="search_index.en.js") }}";
-          s2.onload = function() {
-            if (window.searchIndex) index = elasticlunr.Index.load(window.searchIndex);
+        this.input = this.container.querySelector(inputSelector);
+        this.results = this.container.querySelector(resultsSelector);
+        this.resultTpl = document.querySelector(resultTemplate);
+        this.emptyTpl = document.querySelector(emptyTemplate);
+        this.resultItemSelector = resultItemSelector;
+        this.activeClass = activeClass || "active";
+
+        this.elasticlunrUrl = elasticlunrUrl;
+        this.searchIndexUrl = searchIndexUrl;
+        this.minQueryLength = minQueryLength;
+        this.maxResults = maxResults;
+        this.snippetLength = snippetLength;
+        this.scoreThreshold = scoreThreshold;
+        this.renderResult = renderResult || this.defaultRenderResult.bind(this);
+
+        this.index = null;
+        this.loaded = false;
+        this.active = -1;
+
+        this.input.addEventListener("focus", () => this.loadIndex());
+        this.input.addEventListener("input", () => { this.active = -1; this.search(); });
+        this.input.addEventListener("keydown", (e) => this.handleKeydown(e));
+        document.addEventListener("click", (e) => {
+          if (!this.container.contains(e.target)) this.clear();
+        });
+      }
+
+      loadIndex() {
+        if (this.loaded) return;
+        this.loaded = true;
+
+        const s1 = document.createElement("script");
+        s1.src = this.elasticlunrUrl;
+        s1.onload = () => {
+          const s2 = document.createElement("script");
+          s2.src = this.searchIndexUrl;
+          s2.onload = () => {
+            if (window.searchIndex) this.index = elasticlunr.Index.load(window.searchIndex);
           };
           document.body.appendChild(s2);
         };
         document.body.appendChild(s1);
       }
 
-      function doSearch() {
-        var query = input.value.trim();
-        if (!index || query.length < 2) {
-          results.innerHTML = "";
-          results.style.display = "none";
-          return;
-        }
-        var hits = index.search(query, { expand: false, bool: "AND" })
-          .filter(function(hit) { return hit.score > 0.5; });
+      search() {
+        const query = this.input.value.trim();
+        if (!this.index || query.length < this.minQueryLength) { this.clear(); return; }
+
+        const hits = this.index.search(query, { expand: false, bool: "AND" })
+          .filter(hit => hit.score > this.scoreThreshold);
+
+        this.clearResults();
+
         if (hits.length === 0) {
-          results.innerHTML = "<div class='search-result'>No results found.</div>";
+          this.results.appendChild(this.emptyTpl.content.cloneNode(true));
         } else {
-          results.innerHTML = hits.slice(0, 10).map(function(hit) {
-            var doc = index.documentStore.getDoc(hit.ref);
-            var title = doc.title || hit.ref;
-            var body = doc.body || "";
-            var snippet = body.substring(0, 120).replace(/\n/g, " ");
-            var url = hit.ref.replace(/^https?:\/\/[^\/]+/, "");
-            return "<a class='search-result' href='" + url + "' role='option'>" +
-              "<strong>" + title + "</strong>" +
-              "<span>" + snippet + "...</span></a>";
-          }).join("");
+          hits.slice(0, this.maxResults).forEach(hit => {
+            const doc = this.index.documentStore.getDoc(hit.ref);
+            const node = this.renderResult(this.resultTpl, doc, hit);
+            this.results.appendChild(node);
+          });
         }
-        results.style.display = "block";
+        this.show();
       }
 
-      input.addEventListener("focus", loadSearch);
-      input.addEventListener("input", doSearch);
-      document.addEventListener("click", function(e) {
-        if (!results.contains(e.target) && e.target !== input) results.style.display = "none";
-      });
-    })();
+      defaultRenderResult(tpl, doc, hit) {
+        const node = tpl.content.cloneNode(true);
+        const link = node.querySelector("a");
+        link.href = hit.ref.replace(/^https?:\/\/[^\/]+/, "");
+        node.querySelector("[data-field='title']").textContent = doc.title || hit.ref;
+        node.querySelector("[data-field='snippet']").textContent =
+          (doc.body || "").substring(0, this.snippetLength).replace(/\n/g, " ") + "...";
+        return node;
+      }
+
+      handleKeydown(e) {
+        const items = this.items();
+        if (!items.length) return;
+
+        switch (e.key) {
+          case "ArrowDown": e.preventDefault(); this.setActive(this.active + 1); break;
+          case "ArrowUp":   e.preventDefault(); this.setActive(this.active - 1); break;
+          case "Enter":     if (this.active >= 0) { e.preventDefault(); items[this.active].click(); } break;
+          case "Escape":    this.clear(); break;
+        }
+      }
+
+      setActive(i) {
+        const items = this.items();
+        if (!items.length) return;
+        items.forEach(el => el.classList.remove(this.activeClass));
+        this.active = i >= items.length ? 0 : i < 0 ? items.length - 1 : i;
+        items[this.active].classList.add(this.activeClass);
+        items[this.active].scrollIntoView({ block: "nearest" });
+      }
+
+      items() { return this.results.querySelectorAll(this.resultItemSelector); }
+      show() { this.results.hidden = false; }
+
+      clear() {
+        this.clearResults();
+        this.results.hidden = true;
+        this.active = -1;
+      }
+
+      clearResults() {
+        while (this.results.firstChild) this.results.removeChild(this.results.firstChild);
+      }
+    }
+
+    new SearchComponent("[data-search]", {
+      inputSelector:      "[data-search-input]",
+      resultsSelector:    "[data-search-results]",
+      resultTemplate:     "[data-search-result-template]",
+      emptyTemplate:      "[data-search-empty-template]",
+      resultItemSelector: ".search-result",
+      activeClass:        "active",
+      elasticlunrUrl:     "{{ get_url(path='elasticlunr.min.js') }}",
+      searchIndexUrl:     "{{ get_url(path='search_index.en.js') }}",
+    });
     </script>
 </body>
 </html>

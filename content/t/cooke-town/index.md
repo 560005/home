@@ -8,11 +8,11 @@ tag_name = "cooke-town"
 tag_slug = "cooke-town"
 +++
 
-# #cooke-town
+<h1>#cooke-town</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Unnamed Homely Restaurant near Cooke Town](/c/food-beverage/36-unnamed-homely-restaurant-near-cooke-town/)
-Restaurant serving simple homely food close to Cooke Town. (exactly what you're looking for and close to you)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
+<article class="listing-card">
+<h2><a href="/c/food-beverage/36-unnamed-homely-restaurant-near-cooke-town/">Unnamed Homely Restaurant near Cooke Town</a></h2>
+<p>Restaurant serving simple homely food close to Cooke Town. (exactly what you're looking for and close to you)</p>
+<p><a href="/t/cooke-town/" class="tag">cooke-town</a> <a href="/t/homely-food/" class="tag">homely-food</a> <a href="/t/restaurant/" class="tag">restaurant</a></p>
+</article>

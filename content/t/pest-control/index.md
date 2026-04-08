@@ -8,11 +8,12 @@ tag_name = "pest control"
 tag_slug = "pest-control"
 +++
 
-# #pest control
+<h1>#pest control</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Micro Kills Pest Control Services](/c/home-repair-maintenance/150-micro-kills-pest-control-services/)
-Pest control service specializing in rat control using poison methods. (Helped with rat situation, effective service)
-*Category: [Home Repair & Maintenance](/c/home-repair-maintenance/)*
-
+<article class="listing-card">
+<h2><a href="/c/home-repair-maintenance/150-micro-kills-pest-control-services/">Micro Kills Pest Control Services</a></h2>
+<p>Pest control service specializing in rat control using poison methods. (Helped with rat situation, effective service)</p>
+<p class="listing-meta">&#128222; <a href="tel:+916363883634">+916363883634</a></p>
+<p><a href="/t/exterminator/" class="tag">exterminator</a> <a href="/t/pest-control/" class="tag">pest control</a> <a href="/t/rat-control/" class="tag">rat control</a></p>
+</article>

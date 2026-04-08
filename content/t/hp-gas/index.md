@@ -8,11 +8,12 @@ tag_name = "hp-gas"
 tag_slug = "hp-gas"
 +++
 
-# #hp-gas
+<h1>#hp-gas</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [HP Gas Ravi Banasawadi](/c/home-services/64-hp-gas-ravi-banasawadi/)
-HP Gas cylinder delivery service (Generally delivers cylinders within an hour or two)
-*Category: [Home Services](/c/home-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/home-services/64-hp-gas-ravi-banasawadi/">HP Gas Ravi Banasawadi</a></h2>
+<p>HP Gas cylinder delivery service (Generally delivers cylinders within an hour or two)</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 99161 32819">+91 99161 32819</a></p>
+<p><a href="/t/delivery/" class="tag">delivery</a> <a href="/t/fast-service/" class="tag">fast-service</a> <a href="/t/gas-cylinder/" class="tag">gas-cylinder</a> <a href="/t/hp-gas/" class="tag">hp-gas</a></p>
+</article>

@@ -8,11 +8,11 @@ tag_name = "indian wear"
 tag_slug = "indian-wear"
 +++
 
-# #indian wear
+<h1>#indian wear</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Kraftors](/c/tailoring/166-kraftors/)
-Tailor and designer specializing in Indian menswear. (Resident got a bunch of stuff made recently)
-*Category: [Tailoring](/c/tailoring/)*
-
+<article class="listing-card">
+<h2><a href="/c/tailoring/166-kraftors/">Kraftors</a></h2>
+<p>Tailor and designer specializing in Indian menswear. (Resident got a bunch of stuff made recently)</p>
+<p><a href="/t/clothing/" class="tag">clothing</a> <a href="/t/indian-wear/" class="tag">indian wear</a> <a href="/t/menswear/" class="tag">menswear</a> <a href="/t/tailor/" class="tag">tailor</a></p>
+</article>

@@ -8,11 +8,11 @@ tag_name = "family-friendly"
 tag_slug = "family-friendly"
 +++
 
-# #family-friendly
+<h1>#family-friendly</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Playful Pursuits](/c/community-events/50-playful-pursuits/)
-Jigsaw puzzle community hosting speed puzzling competitions and casual puzzle meetups (Organizer Asma hosts regular events at Underline Center including Piece-off competitions and Jigsaw Junkies casua...
-*Category: [Community & Events](/c/community-events/)*
-
+<article class="listing-card">
+<h2><a href="/c/community-events/50-playful-pursuits/">Playful Pursuits</a></h2>
+<p>Jigsaw puzzle community hosting speed puzzling competitions and casual puzzle meetups (Organizer Asma hosts regular events at Underline Center including Piece-off competitions and Jigsaw Junkies casua...</p>
+<p><a href="/t/community/" class="tag">community</a> <a href="/t/events/" class="tag">events</a> <a href="/t/family-friendly/" class="tag">family-friendly</a> <a href="/t/puzzles/" class="tag">puzzles</a> <a href="/t/recreation/" class="tag">recreation</a></p>
+</article>

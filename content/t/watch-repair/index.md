@@ -8,11 +8,11 @@ tag_name = "watch repair"
 tag_slug = "watch-repair"
 +++
 
-# #watch repair
+<h1>#watch repair</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Watch Repair Shop Commercial Street](/c/repair-services/85-watch-repair-shop-commercial-street/)
-Watch repairer on Commercial Street specializing in automatic watches. (Did a good job, charged reasonably, no funny business)
-*Category: [Repair Services](/c/repair-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/repair-services/85-watch-repair-shop-commercial-street/">Watch Repair Shop Commercial Street</a></h2>
+<p>Watch repairer on Commercial Street specializing in automatic watches. (Did a good job, charged reasonably, no funny business)</p>
+<p><a href="/t/automatic-watches/" class="tag">automatic watches</a> <a href="/t/watch-repair/" class="tag">watch repair</a></p>
+</article>

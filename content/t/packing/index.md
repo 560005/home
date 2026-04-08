@@ -8,15 +8,16 @@ tag_name = "packing"
 tag_slug = "packing"
 +++
 
-# #packing
+<h1>#packing</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [A Enterprises](/c/retail/113-a-enterprises/)
-Store selling packing materials in bulk, located in lane behind Commercial Street. (Good for bulk packing materials)
-*Category: [Retail](/c/retail/)*
-
-## [Oil Mill Road packaging shops](/c/retail/114-oil-mill-road-packaging-shops/)
-Multiple shops on Oil Mill Road selling bubble wrap and packing materials. (May try to overcharge, easy to underestimate how much bubble wrap needed)
-*Category: [Retail](/c/retail/)*
-
+<article class="listing-card">
+<h2><a href="/c/retail/113-a-enterprises/">A Enterprises</a></h2>
+<p>Store selling packing materials in bulk, located in lane behind Commercial Street. (Good for bulk packing materials)</p>
+<p><a href="/t/boxes/" class="tag">boxes</a> <a href="/t/commercial-street/" class="tag">commercial street</a> <a href="/t/packing/" class="tag">packing</a> <a href="/t/supplies/" class="tag">supplies</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/retail/114-oil-mill-road-packaging-shops/">Oil Mill Road packaging shops</a></h2>
+<p>Multiple shops on Oil Mill Road selling bubble wrap and packing materials. (May try to overcharge, easy to underestimate how much bubble wrap needed)</p>
+<p><a href="/t/bubble-wrap/" class="tag">bubble wrap</a> <a href="/t/packaging/" class="tag">packaging</a> <a href="/t/packing/" class="tag">packing</a></p>
+</article>

@@ -8,11 +8,11 @@ tag_name = "community activity"
 tag_slug = "community-activity"
 +++
 
-# #community activity
+<h1>#community activity</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [The Ugly Indian Spotfix](/c/community-events/175-the-ugly-indian-spotfix/)
-Footpath cleanup and civic movement happening near Thom's Bakery. (Footpath cleanup at St Johns Church Rd, children and pets welcome, starts 8am)
-*Category: [Community & Events](/c/community-events/)*
-
+<article class="listing-card">
+<h2><a href="/c/community-events/175-the-ugly-indian-spotfix/">The Ugly Indian Spotfix</a></h2>
+<p>Footpath cleanup and civic movement happening near Thom's Bakery. (Footpath cleanup at St Johns Church Rd, children and pets welcome, starts 8am)</p>
+<p><a href="/t/civic-movement/" class="tag">civic movement</a> <a href="/t/cleanup/" class="tag">cleanup</a> <a href="/t/community-activity/" class="tag">community activity</a></p>
+</article>

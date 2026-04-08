@@ -8,11 +8,11 @@ tag_name = "dental-clinic"
 tag_slug = "dental-clinic"
 +++
 
-# #dental-clinic
+<h1>#dental-clinic</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Dental Bliss](/c/healthcare/133-dental-bliss/)
-Dental clinic with straightforward and practical approach (Dr. Smitha - straightforward and practical)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/133-dental-bliss/">Dental Bliss</a></h2>
+<p>Dental clinic with straightforward and practical approach (Dr. Smitha - straightforward and practical)</p>
+<p><a href="/t/dental-clinic/" class="tag">dental-clinic</a> <a href="/t/dentist/" class="tag">dentist</a> <a href="/t/indiranagar/" class="tag">indiranagar</a></p>
+</article>

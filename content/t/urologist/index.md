@@ -8,11 +8,11 @@ tag_name = "urologist"
 tag_slug = "urologist"
 +++
 
-# #urologist
+<h1>#urologist</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Dr Shiva Kumar](/c/healthcare/18-dr-shiva-kumar/)
-Urologist in Indiranagar who helped with patient issues. (Really helped with some issues)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/18-dr-shiva-kumar/">Dr Shiva Kumar</a></h2>
+<p>Urologist in Indiranagar who helped with patient issues. (Really helped with some issues)</p>
+<p><a href="/t/doctor/" class="tag">doctor</a> <a href="/t/indiranagar/" class="tag">indiranagar</a> <a href="/t/urologist/" class="tag">urologist</a></p>
+</article>

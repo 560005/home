@@ -161,16 +161,26 @@
     (println "  tag:" tag-name (str "(" (count listings) " listings)"))
     (fs/create-dirs dir)
     (spit (str dir "/index.md")
-          (str fm "\n# #" tag-name "\n\n"
+          (str fm "\n<h1>#" tag-name "</h1>\n"
+               "<p class=\"muted\">" (count listings) " listing" (when (not= 1 (count listings)) "s") "</p>\n\n"
                (if (seq listings)
-                 (str "*" (count listings) " listings*\n\n"
-                      (->> listings
-                           (map (fn [l]
-                                  (str "## [" (:name l) "](/c/" (:category_slug l) "/" (:id l) "-" (slug (:name l)) "/)\n"
-                                       (when (:description l) (str (truncate (:description l) 200) "\n"))
-                                       "*Category: [" (:category_name l) "](/c/" (:category_slug l) "/)*\n\n")))
-                           (str/join "")))
-                 "*No listings found with this tag.*\n")))))
+                 (->> listings
+                      (map (fn [l]
+                             (let [url (str "/c/" (:category_slug l) "/" (:id l) "-" (slug (:name l)) "/")
+                                   tags (parse-tags (:tags l))]
+                               (str "<article class=\"listing-card\">\n"
+                                    "<h2><a href=\"" url "\">" (:name l) "</a></h2>\n"
+                                    (when (:description l)
+                                      (str "<p>" (truncate (:description l) 200) "</p>\n"))
+                                    (when (seq (:phone l))
+                                      (str "<p class=\"listing-meta\">&#128222; <a href=\"tel:" (:phone l) "\">" (:phone l) "</a></p>\n"))
+                                    (when (seq tags)
+                                      (str "<p>"
+                                           (str/join " " (map (fn [t] (str "<a href=\"/t/" (slug t) "/\" class=\"tag\">" t "</a>")) tags))
+                                           "</p>\n"))
+                                    "</article>\n"))))
+                      (str/join ""))
+                 "<p>No listings found with this tag.</p>\n")))))
 
 (defn generate-index-page [categories tags]
   (let [cats-toml (->> categories
@@ -208,6 +218,16 @@
         (frontmatter {:title "Categories" :transparent true :render false :in_search_index false}))
   (spit (str content-dir "/t/_index.md")
         (frontmatter {:title "Tags" :transparent true :render false :in_search_index false}))
+
+  ;; Static pages
+  (spit (str content-dir "/about.md")
+        (str "+++\ntitle = \"About - 560005.town\"\n"
+             "description = \"About the community directory\"\n"
+             "path = \"about\"\n+++\n\n"
+             "# About\n\n"
+             "560005.town is a community-maintained directory of local services, people, and places "
+             "in northeastern Bangalore (pincodes 560005, 560084, and surrounding areas).\n\n"
+             "Have a suggestion or correction? Write to [mail@kitallis.in](mailto:mail@kitallis.in).\n"))
 
   (let [categories (fetch-categories-with-counts)
         tags       (fetch-all-tags)]

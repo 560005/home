@@ -8,23 +8,26 @@ tag_name = "stollen"
 tag_slug = "stollen"
 +++
 
-# #stollen
+<h1>#stollen</h1>
+<p class="muted">4 listings</p>
 
-*4 listings*
-
-## [Backer and Charlie](/c/food-beverage/87-backer-and-charlie/)
-Bakery offering Christmas stollens in original and chocolate versions. (Stollen was liked by resident)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
-## [Humblebean](/c/food-beverage/88-humblebean/)
-Bakery offering Christmas stollens.
-*Category: [Food & Beverage](/c/food-beverage/)*
-
-## [Sapa](/c/food-beverage/89-sapa/)
-Restaurant delivering Christmas stollens. (Tried their stollen last year)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
-## [Sourhouse](/c/food-beverage/90-sourhouse/)
-Bakery offering Christmas stollens.
-*Category: [Food & Beverage](/c/food-beverage/)*
-
+<article class="listing-card">
+<h2><a href="/c/food-beverage/87-backer-and-charlie/">Backer and Charlie</a></h2>
+<p>Bakery offering Christmas stollens in original and chocolate versions. (Stollen was liked by resident)</p>
+<p><a href="/t/christmas/" class="tag">Christmas</a> <a href="/t/bakery/" class="tag">bakery</a> <a href="/t/stollen/" class="tag">stollen</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/food-beverage/88-humblebean/">Humblebean</a></h2>
+<p>Bakery offering Christmas stollens.</p>
+<p><a href="/t/christmas/" class="tag">Christmas</a> <a href="/t/bakery/" class="tag">bakery</a> <a href="/t/stollen/" class="tag">stollen</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/food-beverage/89-sapa/">Sapa</a></h2>
+<p>Restaurant delivering Christmas stollens. (Tried their stollen last year)</p>
+<p><a href="/t/christmas/" class="tag">Christmas</a> <a href="/t/delivery/" class="tag">delivery</a> <a href="/t/restaurant/" class="tag">restaurant</a> <a href="/t/stollen/" class="tag">stollen</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/food-beverage/90-sourhouse/">Sourhouse</a></h2>
+<p>Bakery offering Christmas stollens.</p>
+<p><a href="/t/christmas/" class="tag">Christmas</a> <a href="/t/bakery/" class="tag">bakery</a> <a href="/t/stollen/" class="tag">stollen</a></p>
+</article>

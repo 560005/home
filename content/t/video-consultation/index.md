@@ -8,15 +8,17 @@ tag_name = "video consultation"
 tag_slug = "video-consultation"
 +++
 
-# #video consultation
+<h1>#video consultation</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Dr. Prashant's Clinic](/c/healthcare/103-dr-prashants-clinic/)
-General physician clinic in Ulsoor/MG Road area. (Excellent, been to him before | Very good, does video calls, recommended by multiple residents | Excellent doctor, recommended for general practice | ...
-*Category: [Healthcare](/c/healthcare/)*
-
-## [Dr. Srinivasa Phanid](/c/healthcare/155-dr-srinivasa-phanid/)
-Gastroenterologist offering video consultations at Fortis Healthcare. (Residents traveled and waited long for appointment, said it was totally worth it)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/103-dr-prashants-clinic/">Dr. Prashant's Clinic</a></h2>
+<p>General physician clinic in Ulsoor/MG Road area. (Excellent, been to him before | Very good, does video calls, recommended by multiple residents | Excellent doctor, recommended for general practice | ...</p>
+<p class="listing-meta">&#128222; <a href="tel:+919663834945">+919663834945</a></p>
+<p><a href="/t/gp/" class="tag">GP</a> <a href="/t/clinic/" class="tag">clinic</a> <a href="/t/doctor/" class="tag">doctor</a> <a href="/t/general-physician/" class="tag">general physician</a> <a href="/t/general-practitioner/" class="tag">general practitioner</a> <a href="/t/generalphysician/" class="tag">general_physician</a> <a href="/t/healthcare/" class="tag">healthcare</a> <a href="/t/injections/" class="tag">injections</a> <a href="/t/medical/" class="tag">medical</a> <a href="/t/physician/" class="tag">physician</a> <a href="/t/rabies-shot/" class="tag">rabies-shot</a> <a href="/t/telemedicine/" class="tag">telemedicine</a> <a href="/t/video-consultation/" class="tag">video consultation</a> <a href="/t/wound-care/" class="tag">wound care</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/healthcare/155-dr-srinivasa-phanid/">Dr. Srinivasa Phanid</a></h2>
+<p>Gastroenterologist offering video consultations at Fortis Healthcare. (Residents traveled and waited long for appointment, said it was totally worth it)</p>
+<p><a href="/t/doctor/" class="tag">doctor</a> <a href="/t/fortis/" class="tag">fortis</a> <a href="/t/gastroenterologist/" class="tag">gastroenterologist</a> <a href="/t/video-consultation/" class="tag">video consultation</a></p>
+</article>

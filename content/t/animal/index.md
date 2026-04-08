@@ -8,11 +8,11 @@ tag_name = "animal"
 tag_slug = "animal"
 +++
 
-# #animal
+<h1>#animal</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Shanti](/c/animals/227-shanti/)
-quiet dog that sits next to the cobbler, very friendly
-*Category: [Animals](/c/animals/)*
-
+<article class="listing-card">
+<h2><a href="/c/animals/227-shanti/">Shanti</a></h2>
+<p>quiet dog that sits next to the cobbler, very friendly</p>
+<p><a href="/t/dog/" class="tag">dog</a> <a href="/t/street-dog/" class="tag">street dog</a> <a href="/t/animal/" class="tag">animal</a> <a href="/t/stray/" class="tag">stray</a></p>
+</article>

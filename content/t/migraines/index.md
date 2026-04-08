@@ -8,15 +8,16 @@ tag_name = "migraines"
 tag_slug = "migraines"
 +++
 
-# #migraines
+<h1>#migraines</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Dr. Sobha (BNC)](/c/healthcare/194-dr-sobha-bnc/)
-Neurologist at BNC specializing in migraine treatment. (Actually listens to patients, provided relief from migraines)
-*Category: [Healthcare](/c/healthcare/)*
-
-## [Dr. Umashankar (BNC)](/c/healthcare/193-dr-umashankar-bnc/)
-Neurologist at BNC providing treatment for migraines and other conditions. (Good advice, useful medication routine but didn't discuss side effects)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/194-dr-sobha-bnc/">Dr. Sobha (BNC)</a></h2>
+<p>Neurologist at BNC specializing in migraine treatment. (Actually listens to patients, provided relief from migraines)</p>
+<p><a href="/t/doctor/" class="tag">doctor</a> <a href="/t/migraines/" class="tag">migraines</a> <a href="/t/neurologist/" class="tag">neurologist</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/healthcare/193-dr-umashankar-bnc/">Dr. Umashankar (BNC)</a></h2>
+<p>Neurologist at BNC providing treatment for migraines and other conditions. (Good advice, useful medication routine but didn't discuss side effects)</p>
+<p><a href="/t/doctor/" class="tag">doctor</a> <a href="/t/migraines/" class="tag">migraines</a> <a href="/t/neurologist/" class="tag">neurologist</a></p>
+</article>

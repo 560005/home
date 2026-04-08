@@ -8,11 +8,11 @@ tag_name = "eye care"
 tag_slug = "eye-care"
 +++
 
-# #eye care
+<h1>#eye care</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Narayana Nethralaya](/c/healthcare/159-narayana-nethralaya/)
-Eye hospital recommended for second opinion consultations. (Recommended alongside Mirlay for eye care opinions)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/159-narayana-nethralaya/">Narayana Nethralaya</a></h2>
+<p>Eye hospital recommended for second opinion consultations. (Recommended alongside Mirlay for eye care opinions)</p>
+<p><a href="/t/eye-care/" class="tag">eye care</a> <a href="/t/hospital/" class="tag">hospital</a> <a href="/t/ophthalmology/" class="tag">ophthalmology</a></p>
+</article>

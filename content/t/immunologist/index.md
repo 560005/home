@@ -8,11 +8,11 @@ tag_name = "immunologist"
 tag_slug = "immunologist"
 +++
 
-# #immunologist
+<h1>#immunologist</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Dr. Giri](/c/healthcare/11-dr-giri/)
-Immunologist at Kim's hospital for allergy treatments.
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/11-dr-giri/">Dr. Giri</a></h2>
+<p>Immunologist at Kim's hospital for allergy treatments.</p>
+<p><a href="/t/allergy/" class="tag">allergy</a> <a href="/t/doctor/" class="tag">doctor</a> <a href="/t/immunologist/" class="tag">immunologist</a></p>
+</article>

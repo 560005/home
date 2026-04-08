@@ -8,11 +8,11 @@ tag_name = "pre-order"
 tag_slug = "pre-order"
 +++
 
-# #pre-order
+<h1>#pre-order</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [12/2 Store](/c/community-events/179-122-store/)
-Local store hosting fundraiser for community dogs welfare. (Hosting fundraiser with FluffyNut Foundation, opposite ITC Infotech | Abhimanyu highly recommended their lunch pre-order for weekend, said h...
-*Category: [Community & Events](/c/community-events/)*
-
+<article class="listing-card">
+<h2><a href="/c/community-events/179-122-store/">12/2 Store</a></h2>
+<p>Local store hosting fundraiser for community dogs welfare. (Hosting fundraiser with FluffyNut Foundation, opposite ITC Infotech | Abhimanyu highly recommended their lunch pre-order for weekend, said h...</p>
+<p><a href="/t/animal-welfare/" class="tag">animal welfare</a> <a href="/t/community/" class="tag">community</a> <a href="/t/food/" class="tag">food</a> <a href="/t/fundraiser/" class="tag">fundraiser</a> <a href="/t/home-chef/" class="tag">home-chef</a> <a href="/t/lunch/" class="tag">lunch</a> <a href="/t/pre-order/" class="tag">pre-order</a></p>
+</article>

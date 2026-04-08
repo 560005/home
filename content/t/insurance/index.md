@@ -8,11 +8,11 @@ tag_name = "insurance"
 tag_slug = "insurance"
 +++
 
-# #insurance
+<h1>#insurance</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Plum Insurance](/c/professional-services/220-plum-insurance/)
-Insurance provider for domestic staff health covers. (Used by resident for domestic staff health insurance)
-*Category: [Professional Services](/c/professional-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/professional-services/220-plum-insurance/">Plum Insurance</a></h2>
+<p>Insurance provider for domestic staff health covers. (Used by resident for domestic staff health insurance)</p>
+<p><a href="/t/employeebenefits/" class="tag">employee_benefits</a> <a href="/t/healthinsurance/" class="tag">health_insurance</a> <a href="/t/insurance/" class="tag">insurance</a></p>
+</article>

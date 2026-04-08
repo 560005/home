@@ -8,11 +8,11 @@ tag_name = "pet-rescue"
 tag_slug = "pet-rescue"
 +++
 
-# #pet-rescue
+<h1>#pet-rescue</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [CARE/Charlie Animal Rescue](/c/pet-services/224-carecharlie-animal-rescue/)
-Animal rescue organization run by Mallika that coordinates pet rescues including cats stuck in trees. (Shruti coordinated with Mallika who arranged for someone named Kiran to help with cat rescue; hel...
-*Category: [Pet Services](/c/pet-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/pet-services/224-carecharlie-animal-rescue/">CARE/Charlie Animal Rescue</a></h2>
+<p>Animal rescue organization run by Mallika that coordinates pet rescues including cats stuck in trees. (Shruti coordinated with Mallika who arranged for someone named Kiran to help with cat rescue; hel...</p>
+<p><a href="/t/animal-rescue/" class="tag">animal-rescue</a> <a href="/t/cat-rescue/" class="tag">cat-rescue</a> <a href="/t/pet-rescue/" class="tag">pet-rescue</a></p>
+</article>

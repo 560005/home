@@ -8,11 +8,11 @@ tag_name = "bbmp"
 tag_slug = "bbmp"
 +++
 
-# #bbmp
+<h1>#bbmp</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [BBMP Leaf Shredder](/c/government-services/33-bbmp-leaf-shredder/)
-Leaf shredder service available at Richards Park. (bbmp has a leaf shredder in Richards park)
-*Category: [Government Services](/c/government-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/government-services/33-bbmp-leaf-shredder/">BBMP Leaf Shredder</a></h2>
+<p>Leaf shredder service available at Richards Park. (bbmp has a leaf shredder in Richards park)</p>
+<p><a href="/t/bbmp/" class="tag">bbmp</a> <a href="/t/composting/" class="tag">composting</a> <a href="/t/leaf-shredder/" class="tag">leaf-shredder</a> <a href="/t/richards-park/" class="tag">richards-park</a></p>
+</article>

@@ -8,15 +8,18 @@ tag_name = "interior_painting"
 tag_slug = "interiorpainting"
 +++
 
-# #interior_painting
+<h1>#interior_painting</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Ashokan D Painter](/c/home-services/203-ashokan-d-painter/)
-House painter for interiors. (Did a good job, pricing lower than other quotes)
-*Category: [Home Services](/c/home-services/)*
-
-## [Ramesh Painter](/c/home-services/209-ramesh-painter/)
-House painter for interiors.
-*Category: [Home Services](/c/home-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/home-services/203-ashokan-d-painter/">Ashokan D Painter</a></h2>
+<p>House painter for interiors. (Did a good job, pricing lower than other quotes)</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 98458 16966">+91 98458 16966</a></p>
+<p><a href="/t/homeservices/" class="tag">home_services</a> <a href="/t/interiorpainting/" class="tag">interior_painting</a> <a href="/t/painter/" class="tag">painter</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/home-services/209-ramesh-painter/">Ramesh Painter</a></h2>
+<p>House painter for interiors.</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 99166 45869">+91 99166 45869</a></p>
+<p><a href="/t/homeservices/" class="tag">home_services</a> <a href="/t/interiorpainting/" class="tag">interior_painting</a> <a href="/t/painter/" class="tag">painter</a></p>
+</article>

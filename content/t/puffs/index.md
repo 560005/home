@@ -8,11 +8,11 @@ tag_name = "puffs"
 tag_slug = "puffs"
 +++
 
-# #puffs
+<h1>#puffs</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Thoms Bakery](/c/food-beverage/94-thoms-bakery/)
-Bakery known for hariyali chicken puffs, chicken quiche, and italian rolls. (Hariyali chicken puff popular, chicken quiche has gotten larger over time with no price change, italian roll mentioned)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
+<article class="listing-card">
+<h2><a href="/c/food-beverage/94-thoms-bakery/">Thoms Bakery</a></h2>
+<p>Bakery known for hariyali chicken puffs, chicken quiche, and italian rolls. (Hariyali chicken puff popular, chicken quiche has gotten larger over time with no price change, italian roll mentioned)</p>
+<p><a href="/t/bakery/" class="tag">bakery</a> <a href="/t/puffs/" class="tag">puffs</a> <a href="/t/quiche/" class="tag">quiche</a></p>
+</article>

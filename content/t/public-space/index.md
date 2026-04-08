@@ -8,15 +8,16 @@ tag_name = "public-space"
 tag_slug = "public-space"
 +++
 
-# #public-space
+<h1>#public-space</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Milton St Park](/c/community-events/20-milton-st-park/)
-Park closed from 10am to 4pm. (none of the parks are open from 10 to 4 pm I think)
-*Category: [Community & Events](/c/community-events/)*
-
-## [Richards Park](/c/community-events/19-richards-park/)
-Park semi-open after 5pm lately.
-*Category: [Community & Events](/c/community-events/)*
-
+<article class="listing-card">
+<h2><a href="/c/community-events/20-milton-st-park/">Milton St Park</a></h2>
+<p>Park closed from 10am to 4pm. (none of the parks are open from 10 to 4 pm I think)</p>
+<p><a href="/t/park/" class="tag">park</a> <a href="/t/public-space/" class="tag">public-space</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/community-events/19-richards-park/">Richards Park</a></h2>
+<p>Park semi-open after 5pm lately.</p>
+<p><a href="/t/park/" class="tag">park</a> <a href="/t/public-space/" class="tag">public-space</a></p>
+</article>

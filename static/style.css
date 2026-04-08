@@ -27,6 +27,7 @@ li { margin: 0.2em 0; }
 /* Layout */
 .site-header, main, .site-footer { width: 100%; }
 .container { max-width: 800px; margin: 0 auto; padding: 0 12px; }
+main.container { padding-bottom: 2em; }
 
 /* Header */
 .site-header { padding: 12px 0; }

@@ -8,11 +8,11 @@ tag_name = "license"
 tag_slug = "license"
 +++
 
-# #license
+<h1>#license</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Maruti Driving School](/c/education-training/92-maruti-driving-school/)
-Driving school offering lessons and license package near Jeevan Bhima Nagar. (Wife got driving lessons there, package includes getting a license at the end. Has (had?) an inane driving simulator from ...
-*Category: [Education & Training](/c/education-training/)*
-
+<article class="listing-card">
+<h2><a href="/c/education-training/92-maruti-driving-school/">Maruti Driving School</a></h2>
+<p>Driving school offering lessons and license package near Jeevan Bhima Nagar. (Wife got driving lessons there, package includes getting a license at the end. Has (had?) an inane driving simulator from ...</p>
+<p><a href="/t/driving-lessons/" class="tag">driving lessons</a> <a href="/t/license/" class="tag">license</a></p>
+</article>

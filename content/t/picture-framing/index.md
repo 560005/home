@@ -8,15 +8,16 @@ tag_name = "picture framing"
 tag_slug = "picture-framing"
 +++
 
-# #picture framing
+<h1>#picture framing</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Framing Shop Vivekananda Nagar](/c/retail/77-framing-shop-vivekananda-nagar/)
-Basic framing shop offering mounts, synthetic frames, and replacement glass. (Very reasonable and careful)
-*Category: [Retail](/c/retail/)*
-
-## [Henry's Framing](/c/retail/76-henrys-framing/)
-Picture framing shop in Ulsoor. (Good for framing)
-*Category: [Retail](/c/retail/)*
-
+<article class="listing-card">
+<h2><a href="/c/retail/77-framing-shop-vivekananda-nagar/">Framing Shop Vivekananda Nagar</a></h2>
+<p>Basic framing shop offering mounts, synthetic frames, and replacement glass. (Very reasonable and careful)</p>
+<p><a href="/t/affordable/" class="tag">affordable</a> <a href="/t/framing/" class="tag">framing</a> <a href="/t/picture-framing/" class="tag">picture framing</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/retail/76-henrys-framing/">Henry's Framing</a></h2>
+<p>Picture framing shop in Ulsoor. (Good for framing)</p>
+<p><a href="/t/framing/" class="tag">framing</a> <a href="/t/picture-framing/" class="tag">picture framing</a></p>
+</article>

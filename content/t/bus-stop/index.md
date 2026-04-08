@@ -8,15 +8,16 @@ tag_name = "bus stop"
 tag_slug = "bus-stop"
 +++
 
-# #bus stop
+<h1>#bus stop</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Hebbal BMTC Bus Stop](/c/transportation/164-hebbal-bmtc-bus-stop/)
-Bus stop with frequent airport buses every 5 minutes. (All airport buses converge here, costs 350 total including auto from Cooke Town)
-*Category: [Transportation](/c/transportation/)*
-
-## [Mekhri Circle Bus Stop](/c/transportation/165-mekhri-circle-bus-stop/)
-Bus stop for airport buses, alternative to Hebbal stop. (Airport bus shows up in 5 mins, check driver takes flyover past Hebbal)
-*Category: [Transportation](/c/transportation/)*
-
+<article class="listing-card">
+<h2><a href="/c/transportation/164-hebbal-bmtc-bus-stop/">Hebbal BMTC Bus Stop</a></h2>
+<p>Bus stop with frequent airport buses every 5 minutes. (All airport buses converge here, costs 350 total including auto from Cooke Town)</p>
+<p><a href="/t/airport-bus/" class="tag">airport bus</a> <a href="/t/bmtc/" class="tag">bmtc</a> <a href="/t/bus-stop/" class="tag">bus stop</a> <a href="/t/transportation/" class="tag">transportation</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/transportation/165-mekhri-circle-bus-stop/">Mekhri Circle Bus Stop</a></h2>
+<p>Bus stop for airport buses, alternative to Hebbal stop. (Airport bus shows up in 5 mins, check driver takes flyover past Hebbal)</p>
+<p><a href="/t/airport-bus/" class="tag">airport bus</a> <a href="/t/bmtc/" class="tag">bmtc</a> <a href="/t/bus-stop/" class="tag">bus stop</a> <a href="/t/transportation/" class="tag">transportation</a></p>
+</article>

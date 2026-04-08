@@ -8,11 +8,12 @@ tag_name = "reptiles"
 tag_slug = "reptiles"
 +++
 
-# #reptiles
+<h1>#reptiles</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [ARRC Animal Rescue](/c/pet-services/67-arrc-animal-rescue/)
-Animal rescue service for wild reptiles and birds. (Only does wild reptile and bird rescues)
-*Category: [Pet Services](/c/pet-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/pet-services/67-arrc-animal-rescue/">ARRC Animal Rescue</a></h2>
+<p>Animal rescue service for wild reptiles and birds. (Only does wild reptile and bird rescues)</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 94496 42222">+91 94496 42222</a></p>
+<p><a href="/t/animal-rescue/" class="tag">animal rescue</a> <a href="/t/birds/" class="tag">birds</a> <a href="/t/reptiles/" class="tag">reptiles</a> <a href="/t/wildlife/" class="tag">wildlife</a></p>
+</article>

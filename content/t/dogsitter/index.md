@@ -8,11 +8,12 @@ tag_name = "dog_sitter"
 tag_slug = "dogsitter"
 +++
 
-# #dog_sitter
+<h1>#dog_sitter</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Anushree](/c/pet-services/205-anushree/)
-Dog and cat sitter. (Took wonderful care of cat and dog, sent regular updates, always on time, highly recommended by multiple residents)
-*Category: [Pet Services](/c/pet-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/pet-services/205-anushree/">Anushree</a></h2>
+<p>Dog and cat sitter. (Took wonderful care of cat and dog, sent regular updates, always on time, highly recommended by multiple residents)</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 96952 79915">+91 96952 79915</a></p>
+<p><a href="/t/catsitter/" class="tag">cat_sitter</a> <a href="/t/dogsitter/" class="tag">dog_sitter</a> <a href="/t/petcare/" class="tag">pet_care</a> <a href="/t/petsitter/" class="tag">pet_sitter</a></p>
+</article>

@@ -8,11 +8,11 @@ tag_name = "luxury"
 tag_slug = "luxury"
 +++
 
-# #luxury
+<h1>#luxury</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Colonel Dental Spa](/c/healthcare/82-colonel-dental-spa/)
-Dental clinic with Netflix on ceiling and noise cancelling headphones. (Good quality but specializes in recommending unnecessary procedures)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/82-colonel-dental-spa/">Colonel Dental Spa</a></h2>
+<p>Dental clinic with Netflix on ceiling and noise cancelling headphones. (Good quality but specializes in recommending unnecessary procedures)</p>
+<p><a href="/t/dental-clinic/" class="tag">dental clinic</a> <a href="/t/dentist/" class="tag">dentist</a> <a href="/t/luxury/" class="tag">luxury</a></p>
+</article>

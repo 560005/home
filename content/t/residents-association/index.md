@@ -8,11 +8,11 @@ tag_name = "residents association"
 tag_slug = "residents-association"
 +++
 
-# #residents association
+<h1>#residents association</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Cooke Town Residents Association (CTRA)](/c/community-events/98-cooke-town-residents-association-ctra/)
-Residents association ensuring BBMP addresses local issues with paid executive members. (Ensures things aren't just ignored for a year by BBMP, even then it does take time)
-*Category: [Community & Events](/c/community-events/)*
-
+<article class="listing-card">
+<h2><a href="/c/community-events/98-cooke-town-residents-association-ctra/">Cooke Town Residents Association (CTRA)</a></h2>
+<p>Residents association ensuring BBMP addresses local issues with paid executive members. (Ensures things aren't just ignored for a year by BBMP, even then it does take time)</p>
+<p><a href="/t/community/" class="tag">community</a> <a href="/t/residents-association/" class="tag">residents association</a></p>
+</article>

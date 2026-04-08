@@ -8,23 +8,26 @@ tag_name = "bakery"
 tag_slug = "bakery"
 +++
 
-# #bakery
+<h1>#bakery</h1>
+<p class="muted">4 listings</p>
 
-*4 listings*
-
-## [Backer and Charlie](/c/food-beverage/87-backer-and-charlie/)
-Bakery offering Christmas stollens in original and chocolate versions. (Stollen was liked by resident)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
-## [Humblebean](/c/food-beverage/88-humblebean/)
-Bakery offering Christmas stollens.
-*Category: [Food & Beverage](/c/food-beverage/)*
-
-## [Sourhouse](/c/food-beverage/90-sourhouse/)
-Bakery offering Christmas stollens.
-*Category: [Food & Beverage](/c/food-beverage/)*
-
-## [Thoms Bakery](/c/food-beverage/94-thoms-bakery/)
-Bakery known for hariyali chicken puffs, chicken quiche, and italian rolls. (Hariyali chicken puff popular, chicken quiche has gotten larger over time with no price change, italian roll mentioned)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
+<article class="listing-card">
+<h2><a href="/c/food-beverage/87-backer-and-charlie/">Backer and Charlie</a></h2>
+<p>Bakery offering Christmas stollens in original and chocolate versions. (Stollen was liked by resident)</p>
+<p><a href="/t/christmas/" class="tag">Christmas</a> <a href="/t/bakery/" class="tag">bakery</a> <a href="/t/stollen/" class="tag">stollen</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/food-beverage/88-humblebean/">Humblebean</a></h2>
+<p>Bakery offering Christmas stollens.</p>
+<p><a href="/t/christmas/" class="tag">Christmas</a> <a href="/t/bakery/" class="tag">bakery</a> <a href="/t/stollen/" class="tag">stollen</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/food-beverage/90-sourhouse/">Sourhouse</a></h2>
+<p>Bakery offering Christmas stollens.</p>
+<p><a href="/t/christmas/" class="tag">Christmas</a> <a href="/t/bakery/" class="tag">bakery</a> <a href="/t/stollen/" class="tag">stollen</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/food-beverage/94-thoms-bakery/">Thoms Bakery</a></h2>
+<p>Bakery known for hariyali chicken puffs, chicken quiche, and italian rolls. (Hariyali chicken puff popular, chicken quiche has gotten larger over time with no price change, italian roll mentioned)</p>
+<p><a href="/t/bakery/" class="tag">bakery</a> <a href="/t/puffs/" class="tag">puffs</a> <a href="/t/quiche/" class="tag">quiche</a></p>
+</article>

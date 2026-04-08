@@ -8,11 +8,11 @@ tag_name = "manipal"
 tag_slug = "manipal"
 +++
 
-# #manipal
+<h1>#manipal</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Dr. Srinivasan](/c/healthcare/156-dr-srinivasan/)
-ENT specialist at Manipal Millers Road. (Great ENT doctor)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/156-dr-srinivasan/">Dr. Srinivasan</a></h2>
+<p>ENT specialist at Manipal Millers Road. (Great ENT doctor)</p>
+<p><a href="/t/doctor/" class="tag">doctor</a> <a href="/t/ent/" class="tag">ent</a> <a href="/t/manipal/" class="tag">manipal</a></p>
+</article>

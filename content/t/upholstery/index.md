@@ -8,11 +8,12 @@ tag_name = "upholstery"
 tag_slug = "upholstery"
 +++
 
-# #upholstery
+<h1>#upholstery</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Rayan Sofa Repair - Syed](/c/repair-services/75-rayan-sofa-repair---syed/)
-Sofa repair and upholstery service. (Did a good job repairing old defunct recliner, super diligent)
-*Category: [Repair Services](/c/repair-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/repair-services/75-rayan-sofa-repair---syed/">Rayan Sofa Repair - Syed</a></h2>
+<p>Sofa repair and upholstery service. (Did a good job repairing old defunct recliner, super diligent)</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 90710 64884">+91 90710 64884</a></p>
+<p><a href="/t/furniture/" class="tag">furniture</a> <a href="/t/sofa-repair/" class="tag">sofa repair</a> <a href="/t/upholstery/" class="tag">upholstery</a></p>
+</article>

@@ -8,15 +8,17 @@ tag_name = "domestic-help"
 tag_slug = "domestic-help"
 +++
 
-# #domestic-help
+<h1>#domestic-help</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Maryamma](/c/home-services/46-maryamma/)
-Housekeeping and cleaning services Monday to Friday (Looking for additional cleaning/general housekeeping work)
-*Category: [Home Services](/c/home-services/)*
-
-## [Neela - Househelp](/c/home-services/135-neela---househelp/)
-Reliable househelp experienced with pet care and kitchen cleaning (Pretty reliable and takes good care of our cat when I'm not here. Cleans his litter and food plates. We make a mess of our kitchen re...
-*Category: [Home Services](/c/home-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/home-services/46-maryamma/">Maryamma</a></h2>
+<p>Housekeeping and cleaning services Monday to Friday (Looking for additional cleaning/general housekeeping work)</p>
+<p><a href="/t/cleaning/" class="tag">cleaning</a> <a href="/t/domestic-help/" class="tag">domestic-help</a> <a href="/t/housekeeping/" class="tag">housekeeping</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/home-services/135-neela---househelp/">Neela - Househelp</a></h2>
+<p>Reliable househelp experienced with pet care and kitchen cleaning (Pretty reliable and takes good care of our cat when I'm not here. Cleans his litter and food plates. We make a mess of our kitchen re...</p>
+<p class="listing-meta">&#128222; <a href="tel:+919945308165">+919945308165</a></p>
+<p><a href="/t/cleaning/" class="tag">cleaning</a> <a href="/t/domestic-help/" class="tag">domestic-help</a> <a href="/t/househelp/" class="tag">househelp</a> <a href="/t/pet-care/" class="tag">pet-care</a></p>
+</article>

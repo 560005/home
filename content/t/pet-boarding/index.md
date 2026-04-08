@@ -8,23 +8,28 @@ tag_name = "pet-boarding"
 tag_slug = "pet-boarding"
 +++
 
-# #pet-boarding
+<h1>#pet-boarding</h1>
+<p class="muted">4 listings</p>
 
-*4 listings*
-
-## [Anvis](/c/pet-services/130-anvis/)
-Pet boarding service with no cages (Day rates between 750-1000/day inclusive of meals, dogs aren't kept in cages)
-*Category: [Pet Services](/c/pet-services/)*
-
-## [Manisha Dog Home](/c/pet-services/131-manisha-dog-home/)
-Dog boarding service on North Road (She's on North Road)
-*Category: [Pet Services](/c/pet-services/)*
-
-## [Monica Foster Happy Paws](/c/pet-services/128-monica-foster-happy-paws/)
-Pet boarding service specializing in dog care including rescues (She's excellent, has helped a bunch of rescues too and takes great care of all the doggos she boards. 450 per day including meals. Loca...
-*Category: [Pet Services](/c/pet-services/)*
-
-## [Stay](/c/pet-services/129-stay/)
-Pet boarding service with no cages (Day rates between 750-1000/day inclusive of meals, dogs aren't kept in cages)
-*Category: [Pet Services](/c/pet-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/pet-services/130-anvis/">Anvis</a></h2>
+<p>Pet boarding service with no cages (Day rates between 750-1000/day inclusive of meals, dogs aren't kept in cages)</p>
+<p><a href="/t/dog-boarding/" class="tag">dog-boarding</a> <a href="/t/pet-boarding/" class="tag">pet-boarding</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/pet-services/131-manisha-dog-home/">Manisha Dog Home</a></h2>
+<p>Dog boarding service on North Road (She's on North Road)</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 97416 95141">+91 97416 95141</a></p>
+<p><a href="/t/dog-boarding/" class="tag">dog-boarding</a> <a href="/t/pet-boarding/" class="tag">pet-boarding</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/pet-services/128-monica-foster-happy-paws/">Monica Foster Happy Paws</a></h2>
+<p>Pet boarding service specializing in dog care including rescues (She's excellent, has helped a bunch of rescues too and takes great care of all the doggos she boards. 450 per day including meals. Loca...</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 78290 12714">+91 78290 12714</a></p>
+<p><a href="/t/dog-boarding/" class="tag">dog-boarding</a> <a href="/t/indies/" class="tag">indies</a> <a href="/t/pet-boarding/" class="tag">pet-boarding</a> <a href="/t/pet-sitting/" class="tag">pet-sitting</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/pet-services/129-stay/">Stay</a></h2>
+<p>Pet boarding service with no cages (Day rates between 750-1000/day inclusive of meals, dogs aren't kept in cages)</p>
+<p><a href="/t/dog-boarding/" class="tag">dog-boarding</a> <a href="/t/pet-boarding/" class="tag">pet-boarding</a></p>
+</article>

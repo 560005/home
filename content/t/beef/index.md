@@ -8,11 +8,11 @@ tag_name = "beef"
 tag_slug = "beef"
 +++
 
-# #beef
+<h1>#beef</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Lusitania](/c/food-beverage/111-lusitania/)
-Butcher shop on Mosque Road, best for ground beef and other meats. (Best to call ahead to check stock and if open, run out early in the day)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
+<article class="listing-card">
+<h2><a href="/c/food-beverage/111-lusitania/">Lusitania</a></h2>
+<p>Butcher shop on Mosque Road, best for ground beef and other meats. (Best to call ahead to check stock and if open, run out early in the day)</p>
+<p><a href="/t/beef/" class="tag">beef</a> <a href="/t/butcher/" class="tag">butcher</a> <a href="/t/ground-beef/" class="tag">ground beef</a> <a href="/t/meat/" class="tag">meat</a></p>
+</article>

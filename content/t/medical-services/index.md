@@ -8,15 +8,17 @@ tag_name = "medical services"
 tag_slug = "medical-services"
 +++
 
-# #medical services
+<h1>#medical services</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Care on Call](/c/healthcare/10-care-on-call/)
-Home nursing service for medical procedures like cannula replacement. (They were good | ended up going with care on call)
-*Category: [Healthcare](/c/healthcare/)*
-
-## [Portea](/c/healthcare/9-portea/)
-Home nursing service for sterile medical procedures. (more 'so sterile it feels excessive')
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/10-care-on-call/">Care on Call</a></h2>
+<p>Home nursing service for medical procedures like cannula replacement. (They were good | ended up going with care on call)</p>
+<p class="listing-meta">&#128222; <a href="tel:+919916975165">+919916975165</a></p>
+<p><a href="/t/healthcare/" class="tag">healthcare</a> <a href="/t/home-healthcare/" class="tag">home healthcare</a> <a href="/t/home-service/" class="tag">home-service</a> <a href="/t/medical-services/" class="tag">medical services</a> <a href="/t/nursing/" class="tag">nursing</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/healthcare/9-portea/">Portea</a></h2>
+<p>Home nursing service for sterile medical procedures. (more 'so sterile it feels excessive')</p>
+<p><a href="/t/healthcare/" class="tag">healthcare</a> <a href="/t/home-healthcare/" class="tag">home healthcare</a> <a href="/t/home-service/" class="tag">home-service</a> <a href="/t/medical-services/" class="tag">medical services</a> <a href="/t/nursing/" class="tag">nursing</a></p>
+</article>

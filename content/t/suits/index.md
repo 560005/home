@@ -8,11 +8,11 @@ tag_name = "suits"
 tag_slug = "suits"
 +++
 
-# #suits
+<h1>#suits</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Lokesh Ahuja](/c/tailoring/215-lokesh-ahuja/)
-Tailor for men's suits. (Recommended for men's western formal wear)
-*Category: [Tailoring](/c/tailoring/)*
-
+<article class="listing-card">
+<h2><a href="/c/tailoring/215-lokesh-ahuja/">Lokesh Ahuja</a></h2>
+<p>Tailor for men's suits. (Recommended for men's western formal wear)</p>
+<p><a href="/t/formalwear/" class="tag">formal_wear</a> <a href="/t/mensclothing/" class="tag">mens_clothing</a> <a href="/t/suits/" class="tag">suits</a> <a href="/t/tailor/" class="tag">tailor</a></p>
+</article>

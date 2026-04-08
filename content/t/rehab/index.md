@@ -8,11 +8,11 @@ tag_name = "rehab"
 tag_slug = "rehab"
 +++
 
-# #rehab
+<h1>#rehab</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Peak Performance](/c/healthcare/121-peak-performance/)
-Physiotherapy clinic in Domlur, recommended for sports massages and treatment. (Pretty good, sports massages available, recommended by multiple residents)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/121-peak-performance/">Peak Performance</a></h2>
+<p>Physiotherapy clinic in Domlur, recommended for sports massages and treatment. (Pretty good, sports massages available, recommended by multiple residents)</p>
+<p><a href="/t/physiotherapy/" class="tag">physiotherapy</a> <a href="/t/rehab/" class="tag">rehab</a> <a href="/t/sports-massage/" class="tag">sports massage</a></p>
+</article>

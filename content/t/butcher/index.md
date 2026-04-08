@@ -8,15 +8,17 @@ tag_name = "butcher"
 tag_slug = "butcher"
 +++
 
-# #butcher
+<h1>#butcher</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Ilahi](/c/food-beverage/112-ilahi/)
-Butcher shop recommended as great alternative to Lusitania. (Great butcher)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
-## [Lusitania](/c/food-beverage/111-lusitania/)
-Butcher shop on Mosque Road, best for ground beef and other meats. (Best to call ahead to check stock and if open, run out early in the day)
-*Category: [Food & Beverage](/c/food-beverage/)*
-
+<article class="listing-card">
+<h2><a href="/c/food-beverage/112-ilahi/">Ilahi</a></h2>
+<p>Butcher shop recommended as great alternative to Lusitania. (Great butcher)</p>
+<p class="listing-meta">&#128222; <a href="tel:+919243120553">+919243120553</a></p>
+<p><a href="/t/butcher/" class="tag">butcher</a> <a href="/t/meat/" class="tag">meat</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/food-beverage/111-lusitania/">Lusitania</a></h2>
+<p>Butcher shop on Mosque Road, best for ground beef and other meats. (Best to call ahead to check stock and if open, run out early in the day)</p>
+<p><a href="/t/beef/" class="tag">beef</a> <a href="/t/butcher/" class="tag">butcher</a> <a href="/t/ground-beef/" class="tag">ground beef</a> <a href="/t/meat/" class="tag">meat</a></p>
+</article>

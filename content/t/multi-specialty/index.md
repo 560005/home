@@ -8,11 +8,11 @@ tag_name = "multi-specialty"
 tag_slug = "multi-specialty"
 +++
 
-# #multi-specialty
+<h1>#multi-specialty</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Manipal Miller's Road](/c/healthcare/72-manipal-millers-road/)
-Hospital with multiple doctors available for various specialties. (Recommended for most things because they have a bunch of doctors)
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/72-manipal-millers-road/">Manipal Miller's Road</a></h2>
+<p>Hospital with multiple doctors available for various specialties. (Recommended for most things because they have a bunch of doctors)</p>
+<p><a href="/t/hospital/" class="tag">hospital</a> <a href="/t/multi-specialty/" class="tag">multi-specialty</a></p>
+</article>

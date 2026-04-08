@@ -8,15 +8,16 @@ tag_name = "home visits"
 tag_slug = "home-visits"
 +++
 
-# #home visits
+<h1>#home visits</h1>
+<p class="muted">2 listings</p>
 
-*2 listings*
-
-## [Care On Call Clinic](/c/healthcare/190-care-on-call-clinic/)
-Clinic at Ulsoor offering wound care and home visit services. (Doctors and nurses do home visits for regular dressing changes)
-*Category: [Healthcare](/c/healthcare/)*
-
-## [Dr. Krishna (VOICE)](/c/pet-services/200-dr-krishna-voice/)
-Veterinarian offering clinic and home visit services. (Excellent, does home visits for rescues)
-*Category: [Pet Services](/c/pet-services/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/190-care-on-call-clinic/">Care On Call Clinic</a></h2>
+<p>Clinic at Ulsoor offering wound care and home visit services. (Doctors and nurses do home visits for regular dressing changes)</p>
+<p><a href="/t/clinic/" class="tag">clinic</a> <a href="/t/home-visits/" class="tag">home visits</a> <a href="/t/nursing/" class="tag">nursing</a> <a href="/t/wound-care/" class="tag">wound care</a></p>
+</article>
+<article class="listing-card">
+<h2><a href="/c/pet-services/200-dr-krishna-voice/">Dr. Krishna (VOICE)</a></h2>
+<p>Veterinarian offering clinic and home visit services. (Excellent, does home visits for rescues)</p>
+<p><a href="/t/home-visits/" class="tag">home visits</a> <a href="/t/vet/" class="tag">vet</a> <a href="/t/veterinary/" class="tag">veterinary</a></p>
+</article>

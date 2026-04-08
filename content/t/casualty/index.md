@@ -8,11 +8,11 @@ tag_name = "casualty"
 tag_slug = "casualty"
 +++
 
-# #casualty
+<h1>#casualty</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Primecare Hospital](/c/healthcare/226-primecare-hospital/)
-Hospital on MM Road with casualty department that administers shots like tetanus and rabies. (Jayesha got tetanus shot there by buying from pharmacy and getting shot in Casualty; has gotten rabies sho...
-*Category: [Healthcare](/c/healthcare/)*
-
+<article class="listing-card">
+<h2><a href="/c/healthcare/226-primecare-hospital/">Primecare Hospital</a></h2>
+<p>Hospital on MM Road with casualty department that administers shots like tetanus and rabies. (Jayesha got tetanus shot there by buying from pharmacy and getting shot in Casualty; has gotten rabies sho...</p>
+<p><a href="/t/casualty/" class="tag">casualty</a> <a href="/t/emergency/" class="tag">emergency</a> <a href="/t/hospital/" class="tag">hospital</a> <a href="/t/injections/" class="tag">injections</a> <a href="/t/rabies/" class="tag">rabies</a> <a href="/t/tetanus/" class="tag">tetanus</a></p>
+</article>

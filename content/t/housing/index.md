@@ -8,11 +8,12 @@ tag_name = "housing"
 tag_slug = "housing"
 +++
 
-# #housing
+<h1>#housing</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Purva Park 2BHK rental](/c/real-estate/115-purva-park-2bhk-rental/)
-Spacious, sunlit 2BHK apartment available for rent from 1st May in Purva Park, Cox Town.
-*Category: [Real Estate](/c/real-estate/)*
-
+<article class="listing-card">
+<h2><a href="/c/real-estate/115-purva-park-2bhk-rental/">Purva Park 2BHK rental</a></h2>
+<p>Spacious, sunlit 2BHK apartment available for rent from 1st May in Purva Park, Cox Town.</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 96321 94345">+91 96321 94345</a></p>
+<p><a href="/t/2bhk/" class="tag">2bhk</a> <a href="/t/apartment/" class="tag">apartment</a> <a href="/t/housing/" class="tag">housing</a> <a href="/t/rental/" class="tag">rental</a></p>
+</article>

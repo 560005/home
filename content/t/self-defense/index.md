@@ -8,11 +8,12 @@ tag_name = "self-defense"
 tag_slug = "self-defense"
 +++
 
-# #self-defense
+<h1>#self-defense</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Orange Arc Community Studio](/c/community-events/142-orange-arc-community-studio/)
-Community studio hosting self-defense workshops and other events. (Hosted Unfreeze 2.0 Self Defense Workshop)
-*Category: [Community & Events](/c/community-events/)*
-
+<article class="listing-card">
+<h2><a href="/c/community-events/142-orange-arc-community-studio/">Orange Arc Community Studio</a></h2>
+<p>Community studio hosting self-defense workshops and other events. (Hosted Unfreeze 2.0 Self Defense Workshop)</p>
+<p class="listing-meta">&#128222; <a href="tel:+918147514755">+918147514755</a></p>
+<p><a href="/t/community/" class="tag">community</a> <a href="/t/event-venue/" class="tag">event venue</a> <a href="/t/self-defense/" class="tag">self-defense</a> <a href="/t/workshop/" class="tag">workshop</a></p>
+</article>

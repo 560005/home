@@ -8,11 +8,12 @@ tag_name = "electrical"
 tag_slug = "electrical"
 +++
 
-# #electrical
+<h1>#electrical</h1>
+<p class="muted">1 listing</p>
 
-*1 listings*
-
-## [Narayan Electricians](/c/home-repair-maintenance/53-narayan-electricians/)
-Electrician service for the Cooke Town area (Helpful and nice according to residents)
-*Category: [Home Repair & Maintenance](/c/home-repair-maintenance/)*
-
+<article class="listing-card">
+<h2><a href="/c/home-repair-maintenance/53-narayan-electricians/">Narayan Electricians</a></h2>
+<p>Electrician service for the Cooke Town area (Helpful and nice according to residents)</p>
+<p class="listing-meta">&#128222; <a href="tel:+91 90364 29657">+91 90364 29657</a></p>
+<p><a href="/t/electrical/" class="tag">electrical</a> <a href="/t/electrician/" class="tag">electrician</a> <a href="/t/home-repair/" class="tag">home-repair</a></p>
+</article>

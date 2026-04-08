@@ -208,26 +208,17 @@
 (defn generate-all []
   (println "🚀 Generating site from" datasette-url)
 
-  ;; Clean and recreate content dir
-  (when (fs/exists? content-dir) (fs/delete-tree content-dir))
-  (doseq [d [content-dir (str content-dir "/c") (str content-dir "/t")]]
-    (fs/create-dirs d))
+  ;; Clean and recreate generated content dirs (preserve static pages like about.md)
+  (doseq [d ["c" "t"]]
+    (let [path (str content-dir "/" d)]
+      (when (fs/exists? path) (fs/delete-tree path))
+      (fs/create-dirs path)))
 
   ;; Parent sections so child pages are not orphans (required for search indexing)
   (spit (str content-dir "/c/_index.md")
         (frontmatter {:title "Categories" :transparent true :render false :in_search_index false}))
   (spit (str content-dir "/t/_index.md")
         (frontmatter {:title "Tags" :transparent true :render false :in_search_index false}))
-
-  ;; Static pages
-  (spit (str content-dir "/about.md")
-        (str "+++\ntitle = \"About - 560005.town\"\n"
-             "description = \"About the community directory\"\n"
-             "path = \"about\"\n+++\n\n"
-             "# About\n\n"
-             "560005.town is a community-maintained directory of local services, people, and places "
-             "in northeastern Bangalore (pincodes 560005, 560084, and surrounding areas).\n\n"
-             "Have a suggestion or correction? Write to [mail@kitallis.in](mailto:mail@kitallis.in).\n"))
 
   (let [categories (fetch-categories-with-counts)
         tags       (fetch-all-tags)]

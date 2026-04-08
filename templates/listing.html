@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-    <nav class="text-xs text-gray mb-4 py-1 border-b border-light">
-        <a href="/">Home</a> &gt;
-        <a href="/c/{{ page.extra.category_slug }}/">{{ page.extra.category_slug }}</a> &gt;
-        <span>{{ page.extra.listing_name }}</span>
-    </nav>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &gt;
+    <a href="/c/{{ page.extra.category_slug }}/">{{ page.extra.category_slug }}</a> &gt;
+    <span aria-current="page">{{ page.extra.listing_name }}</span>
+</nav>
 
+<article>
     <h1>{{ page.extra.listing_name }}</h1>
 
     {% if page.extra.verified_by %}
-    <div class="tag mb-4">✓ Verified by {{ page.extra.verified_by }}</div>
+    <p class="listing-verified">&#10003; Verified by {{ page.extra.verified_by }}</p>
     {% endif %}
 
     {% if page.extra.listing_description %}
@@ -19,11 +19,11 @@
     {% endif %}
 
     {% if page.extra.phone %}
-    <p>📞 {{ page.extra.phone }}</p>
+    <p class="listing-meta">&#128222; <a href="tel:{{ page.extra.phone }}">{{ page.extra.phone }}</a></p>
     {% endif %}
 
     {% if page.extra.address %}
-    <p>📍 {{ page.extra.address }}</p>
+    <p class="listing-meta">&#128205; {{ page.extra.address }}</p>
     {% endif %}
 
     {% if page.extra.tags %}
@@ -35,18 +35,18 @@
     {% endif %}
 
     {% if page.extra.latitude and page.extra.longitude %}
-    <div class="mt-4 p-4 bg-gray border rounded">
+    <div class="listing-map">
         <div id="map" data-lat="{{ page.extra.latitude }}" data-lng="{{ page.extra.longitude }}"></div>
         {% if page.extra.maps_link %}
-        <a href="{{ page.extra.maps_link }}" target="_blank" rel="noopener" class="text-xs text-blue mt-2 inline-block">View on Google Maps →</a>
+        <p><a href="{{ page.extra.maps_link }}" target="_blank" rel="noopener">View on Google Maps &#8594;</a></p>
         {% endif %}
     </div>
     {% elif page.extra.maps_link %}
-    <div class="mt-4 p-4 bg-gray border rounded">
-        <a href="{{ page.extra.maps_link }}" target="_blank" rel="noopener" class="text-blue">View on Google Maps →</a>
+    <div class="listing-map">
+        <a href="{{ page.extra.maps_link }}" target="_blank" rel="noopener">View on Google Maps &#8594;</a>
     </div>
     {% endif %}
-</div>
+</article>
 
 {% if page.extra.latitude and page.extra.longitude %}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />

@@ -4,34 +4,6 @@ description = "Community-maintained listings of local services, people, and plac
 template = "index.html"
 
 [extra]
-heading = "East Bangalore Directory"
-subtitle = "Welcome to the community directory for East Bangalore"
+categories = [{name = "Animals", slug = "animals", count = 1}, {name = "Auto Services", slug = "auto-services", count = 5}, {name = "Beauty & Personal Care", slug = "beauty-personal-care", count = 1}, {name = "Community & Events", slug = "community-events", count = 16}, {name = "Delivery Services", slug = "delivery-services", count = 1}, {name = "Education & Training", slug = "education-training", count = 2}, {name = "Food & Beverage", slug = "food-beverage", count = 12}, {name = "Government Services", slug = "government-services", count = 3}, {name = "Healthcare", slug = "healthcare", count = 62}, {name = "Home Repair & Maintenance", slug = "home-repair-maintenance", count = 15}, {name = "Home Services", slug = "home-services", count = 26}, {name = "Laundry Services", slug = "laundry-services", count = 4}, {name = "Moving & Logistics", slug = "moving-logistics", count = 1}, {name = "Pet Services", slug = "pet-services", count = 23}, {name = "Printing & Photography", slug = "printing-photography", count = 4}, {name = "Professional Services", slug = "professional-services", count = 6}, {name = "Real Estate", slug = "real-estate", count = 2}, {name = "Recreation & Sports", slug = "recreation-sports", count = 2}, {name = "Rental Services", slug = "rental-services", count = 1}, {name = "Repair Services", slug = "repair-services", count = 7}, {name = "Retail", slug = "retail", count = 19}, {name = "Tailoring", slug = "tailoring", count = 7}, {name = "Transportation", slug = "transportation", count = 2}, {name = "Waste & Recycling", slug = "waste-recycling", count = 3}]
+tags = [{name = "doctor", slug = "doctor"}, {name = "hospital", slug = "hospital"}, {name = "medical", slug = "medical"}, {name = "healthcare", slug = "healthcare"}, {name = "delivery", slug = "delivery"}, {name = "vet", slug = "vet"}, {name = "tailor", slug = "tailor"}, {name = "framing", slug = "framing"}, {name = "clinic", slug = "clinic"}, {name = "emergency", slug = "emergency"}, {name = "community", slug = "community"}, {name = "cleaning", slug = "cleaning"}, {name = "vaccination", slug = "vaccination"}, {name = "printing", slug = "printing"}, {name = "home-service", slug = "home-service"}, {name = "veterinary", slug = "veterinary"}, {name = "physiotherapy", slug = "physiotherapy"}, {name = "home services", slug = "home-services"}, {name = "electrician", slug = "electrician"}, {name = "ENT", slug = "ent"}, {name = "stollen", slug = "stollen"}, {name = "restaurant", slug = "restaurant"}, {name = "rental", slug = "rental"}, {name = "recycling", slug = "recycling"}, {name = "pickup", slug = "pickup"}, {name = "pharmacy", slug = "pharmacy"}, {name = "pet-boarding", slug = "pet-boarding"}, {name = "neurologist", slug = "neurologist"}, {name = "mechanic", slug = "mechanic"}, {name = "laundry", slug = "laundry"}, {name = "indiranagar", slug = "indiranagar"}, {name = "housekeeping", slug = "housekeeping"}, {name = "home_services", slug = "homeservices"}, {name = "gardening", slug = "gardening"}, {name = "dog-boarding", slug = "dog-boarding"}, {name = "diagnostic", slug = "diagnostic"}, {name = "dentist", slug = "dentist"}, {name = "clothing", slug = "clothing"}, {name = "cats", slug = "cats"}, {name = "bakery", slug = "bakery"}, {name = "art", slug = "art"}, {name = "Christmas", slug = "christmas"}, {name = "windows", slug = "windows"}, {name = "wildlife", slug = "wildlife"}, {name = "specialty foods", slug = "specialty-foods"}, {name = "retail", slug = "retail"}, {name = "radiology", slug = "radiology"}, {name = "physio", slug = "physio"}, {name = "pet sitting", slug = "pet-sitting"}, {name = "pet care", slug = "pet-care"}]
 +++
-
-<div class="flex flex-row justify-between gap-8 sm-flex-col">
-
-<div>
-
-## Categories
-
-- [Animals](/c/animals/) *(1 listings)*
-- [Services](/c/services/) *(1 listings)*
-
-</div>
-
-<div>
-
-## Tags
-
-[animal](/t/animal/)
-[dog](/t/dog/)
-[drilling](/t/drilling/)
-[electrician](/t/electrician/)
-[handyman](/t/handyman/)
-[plumber](/t/plumber/)
-[stray](/t/stray/)
-[street dog](/t/street-dog/)
-
-</div>
-
-</div>

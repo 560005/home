@@ -13,7 +13,7 @@ category_slug = "animals"
 
 *1 listings*
 
-## [Shanti](2-shanti/)
+## [Shanti](227-shanti/)
 quiet dog that sits next to the cobbler, very friendly
 
 

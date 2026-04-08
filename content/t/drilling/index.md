@@ -10,9 +10,13 @@ tag_slug = "drilling"
 
 # #drilling
 
-*1 listings*
+*2 listings*
 
-## [Iqbal](/c/services/1-iqbal/)
-electrician-first handyperson who can do a lot of odd-jobs like drilling, plumbing,electrical work etc.
-*Category: [Services](/c/services/)*
+## [HighSt Electrician Iqbal](/c/home-repair-maintenance/5-highst-electrician-iqbal/)
+electrician-first handyperson who can do a lot of odd-jobs like drilling, plumbing, electrical work etc. (very good, does good work but quite expensive)
+*Category: [Home Repair & Maintenance](/c/home-repair-maintenance/)*
+
+## [Mushtaq Ahmed Carpenter](/c/home-repair-maintenance/28-mushtaq-ahmed-carpenter/)
+Carpenter available for small jobs including drilling and installations. (Good for small jobs | super nice helping set up IKEA table, prompt communication and travel)
+*Category: [Home Repair & Maintenance](/c/home-repair-maintenance/)*
 

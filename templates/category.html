@@ -1,11 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="category-page">
-    <nav class="breadcrumb">
-        <a href="/">Home</a> &gt; <span>{{ section.extra.category_name }}</span>
-    </nav>
-    
-    {{ section.content | safe }}
-</div>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &gt; <span aria-current="page">{{ section.extra.category_name }}</span>
+</nav>
+
+<h1>{{ section.extra.category_name }}</h1>
+<p class="muted">{{ section.pages | length }} listing{{ section.pages | length | pluralize }}</p>
+
+{% for page in section.pages %}
+<article class="listing-card">
+    <h2><a href="{{ page.permalink }}">{{ page.extra.listing_name | default(value=page.title) }}</a></h2>
+    {% if page.extra.listing_description %}
+    <p>{{ page.extra.listing_description }}</p>
+    {% elif page.description %}
+    <p>{{ page.description }}</p>
+    {% endif %}
+    {% if page.extra.phone %}
+    <p class="listing-meta">&#128222; <a href="tel:{{ page.extra.phone }}">{{ page.extra.phone }}</a></p>
+    {% endif %}
+    {% if page.extra.tags %}
+    <p>
+    {% for tag in page.extra.tags %}
+        <a href="/t/{{ tag | lower | replace(from=' ', to='-') }}/" class="tag">{{ tag }}</a>
+    {% endfor %}
+    </p>
+    {% endif %}
+</article>
+{% endfor %}
 {% endblock %}

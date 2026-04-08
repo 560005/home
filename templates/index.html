@@ -4,7 +4,7 @@
     <h2>Categories</h2>
     <ul>
     {% for cat in section.extra.categories %}
-      <li><a href="/c/{{ cat.slug }}/">{{ cat.name }}</a> <span class="text-gray text-xs">({{ cat.count }})</span></li>
+      <li><a href="/c/{{ cat.slug }}/">{{ cat.name }}</a> <span class="muted">({{ cat.count }})</span></li>
     {% endfor %}
     </ul>
   </div>

@@ -10,9 +10,13 @@ tag_slug = "plumber"
 
 # #plumber
 
-*1 listings*
+*2 listings*
 
-## [Iqbal](/c/services/1-iqbal/)
-electrician-first handyperson who can do a lot of odd-jobs like drilling, plumbing,electrical work etc.
-*Category: [Services](/c/services/)*
+## [HighSt Electrician Iqbal](/c/home-repair-maintenance/5-highst-electrician-iqbal/)
+electrician-first handyperson who can do a lot of odd-jobs like drilling, plumbing, electrical work etc. (very good, does good work but quite expensive)
+*Category: [Home Repair & Maintenance](/c/home-repair-maintenance/)*
+
+## [Kannan (Plumber)](/c/home-services/178-kannan-plumber/)
+Plumber providing plumbing services in the area. (Alternative to Iqbal)
+*Category: [Home Services](/c/home-services/)*
 

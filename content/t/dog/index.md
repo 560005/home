@@ -12,7 +12,7 @@ tag_slug = "dog"
 
 *1 listings*
 
-## [Shanti](/c/animals/2-shanti/)
+## [Shanti](/c/animals/227-shanti/)
 quiet dog that sits next to the cobbler, very friendly
 *Category: [Animals](/c/animals/)*
 

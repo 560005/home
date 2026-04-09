@@ -11,6 +11,9 @@
 {% for page in section.pages %}
 <article class="listing-card">
     <h2><a href="{{ page.permalink }}">{{ page.extra.listing_name | default(value=page.title) }}</a></h2>
+    {% if page.extra.verified_by %}
+    <p class="listing-verified">&#10003; Verified by {{ page.extra.verified_by }}</p>
+    {% endif %}
     {% if page.extra.listing_description %}
     <p>{{ page.extra.listing_description }}</p>
     {% elif page.description %}

@@ -170,6 +170,8 @@
                                    tags (parse-tags (:tags l))]
                                (str "<article class=\"listing-card\">\n"
                                     "<h2><a href=\"" url "\">" (:name l) "</a></h2>\n"
+                                    (when (seq (str (:verified_by l)))
+                                      (str "<p class=\"listing-verified\">&#10003; Verified by " (:verified_by l) "</p>\n"))
                                     (when (:description l)
                                       (str "<p>" (truncate (:description l) 200) "</p>\n"))
                                     (when (seq (:phone l))

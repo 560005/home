@@ -44,6 +44,7 @@ http { \
     default_type application/octet-stream; \
     sendfile on; \
     keepalive_timeout 65; \
+    absolute_redirect off; \
     server { \
         listen 8080; \
         server_name _; \

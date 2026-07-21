@@ -92,6 +92,14 @@
         document.addEventListener("click", (e) => {
           if (!this.container.contains(e.target)) this.clear();
         });
+
+        // Warm the index in the background once the page is idle after first
+        // paint, so search is ready before the user interacts. focus remains a
+        // fallback trigger, and loadIndex() is idempotent.
+        const warm = () => this.loadIndex();
+        const schedule = () => (window.requestIdleCallback || window.setTimeout)(warm);
+        if (document.readyState === "complete") schedule();
+        else window.addEventListener("load", schedule);
       }
 
       loadIndex() {
@@ -105,6 +113,8 @@
           s2.src = this.searchIndexUrl;
           s2.onload = () => {
             if (window.searchIndex) this.index = elasticlunr.Index.load(window.searchIndex);
+            // If the user already typed while the index was loading, run it now.
+            if (this.input.value.trim()) this.search();
           };
           document.body.appendChild(s2);
         };

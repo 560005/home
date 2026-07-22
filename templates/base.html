@@ -14,7 +14,7 @@
             <nav aria-label="Site navigation">
                 <a href="/" class="site-title">560005.town</a>
                 <div class="nav-links">
-                    <a href="mailto:mail@kitallis.in?subject=New listing for 560005.town">Request a listing</a>
+                    <a href="#" data-u="mail" data-d="kitallis.in" data-subject="New listing for 560005.town">Request a listing</a>
                 </div>
             </nav>
             <div data-search class="search-wrapper">
@@ -196,6 +196,16 @@
       activeClass:        "active",
       elasticlunrUrl:     "{{ get_url(path='elasticlunr.min.js') }}",
       searchIndexUrl:     "{{ get_url(path='search_index.en.js') }}",
+    });
+
+    // Assemble mailto links from data-* parts so addresses never appear in the
+    // raw HTML (basic scraper obfuscation, no external request). Keeps existing
+    // link text; fills in the address where the link has none (e.g. /about).
+    document.querySelectorAll("a[data-u][data-d]").forEach((a) => {
+      const addr = a.dataset.u + "@" + a.dataset.d;
+      const subject = a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "";
+      a.href = "mailto:" + addr + subject;
+      if (!a.textContent.trim()) a.textContent = addr;
     });
     </script>
 </body>

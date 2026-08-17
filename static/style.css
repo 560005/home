@@ -171,3 +171,23 @@ article > h1 { margin-bottom: 0.25em; }
   .site-header nav { flex-direction: column; gap: 8px; text-align: center; }
   .index-grid { grid-template-columns: 1fr; }
 }
+
+/* View transitions: animate real link navigations between pages.
+   Progressive enhancement — browsers without support just navigate normally. */
+@view-transition { navigation: auto; }
+
+/* Keep the header and footer steady across navigations (they're identical on
+   every page); only the main content cross-fades. */
+.site-header { view-transition-name: site-header; }
+.site-footer { view-transition-name: site-footer; }
+
+/* The default (root) cross-fade covers the main content. Keep it quick. */
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.2s; }
+
+/* Respect users who prefer no motion. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}

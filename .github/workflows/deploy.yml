@@ -24,6 +24,9 @@ jobs:
           rm -f babashka-${{ env.BABASHKA_VERSION }}-linux-amd64.tar.gz
 
       - name: Generate site content
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: bb bin/generate-site
 
       - name: Verify content generated

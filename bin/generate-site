@@ -1,6 +1,8 @@
 #!/usr/bin/env bb
-;;; Site generator for 560005.town - pulls data from Datasette and creates Zola pages
-;;; Usage: bb bin/generate-site [datasette-url]
+;;; Site generator for 560005.town - pulls data from Cloudflare D1 and creates Zola pages
+;;; Usage: bb bin/generate-site
+;;; Requires env: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN (D1 read),
+;;;               optionally D1_DATABASE_ID (defaults to the 560005-town DB).
 
 (require '[babashka.http-client :as http]
          '[babashka.fs :as fs]
@@ -8,22 +10,39 @@
          '[clojure.string :as str])
 
 ;; Configuration
-(def datasette-url (or (first *command-line-args*) "https://edit.560005.town"))
+(def account-id  (System/getenv "CLOUDFLARE_ACCOUNT_ID"))
+(def database-id (or (System/getenv "D1_DATABASE_ID") "9314d0ff-d359-4152-866f-ea8747b8208b"))
+(def api-token   (System/getenv "CLOUDFLARE_API_TOKEN"))
 (def content-dir "content")
 
-;; --- Datasette helpers ---
+(when (or (str/blank? account-id) (str/blank? api-token))
+  (println "FATAL: CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN must be set")
+  (System/exit 1))
+
+(def d1-url
+  (str "https://api.cloudflare.com/client/v4/accounts/" account-id
+       "/d1/database/" database-id "/query"))
+
+;; --- Cloudflare D1 helpers ---
+;; D1's REST API binds positional `?` placeholders to a params array, so
+;; parameterised queries below use `?` rather than Datasette's `:named` params.
 
 (defn query
-  "Execute SQL against Datasette, returns vector of maps."
+  "Execute SQL against Cloudflare D1, returns a vector of row maps.
+  Throws on transport/HTTP failure so a broken run fails the build loudly
+  instead of silently emitting an empty site."
   [sql & [params]]
-  (try
-    (let [resp (http/get (str datasette-url "/data.json")
-                         {:query-params (merge {"sql" sql "_shape" "objects"} params)
-                          :headers {"Accept" "application/json"}})]
-      (:rows (json/parse-string (:body resp) true)))
-    (catch Exception e
-      (println "Error:" sql (.getMessage e))
-      [])))
+  (let [resp (http/post d1-url
+                        {:headers {"Authorization" (str "Bearer " api-token)
+                                   "Content-Type" "application/json"}
+                         :body    (json/generate-string {:sql sql :params (vec params)})
+                         :throw   false})
+        body (json/parse-string (:body resp) true)]
+    (when-not (:success body)
+      (println "D1 query failed (HTTP" (:status resp) "):" (pr-str (:errors body)))
+      (println "  SQL:" sql)
+      (System/exit 1))
+    (-> body :result first :results)))
 
 (defn slug [s]
   (-> s str/lower-case str/trim
@@ -51,9 +70,9 @@
   (query "SELECT l.*, c.slug as category_slug, c.name as category_name
           FROM listings l
           JOIN categories c ON l.category_id = c.id
-          WHERE c.slug = :slug
+          WHERE c.slug = ?
           ORDER BY l.name"
-         {"slug" cat-slug}))
+         [cat-slug]))
 
 (defn fetch-all-tags []
   (query "SELECT json_each.value as tag, COUNT(*) as listing_count
@@ -67,9 +86,9 @@
           FROM listings l
           LEFT JOIN categories c ON l.category_id = c.id
           WHERE l.tags IS NOT NULL
-            AND EXISTS (SELECT 1 FROM json_each(l.tags) WHERE json_each.value = :tag)
+            AND EXISTS (SELECT 1 FROM json_each(l.tags) WHERE json_each.value = ?)
           ORDER BY l.name"
-         {"tag" tag}))
+         [tag]))
 
 ;; --- TOML frontmatter ---
 
@@ -208,7 +227,7 @@
 ;; --- Main ---
 
 (defn generate-all []
-  (println "🚀 Generating site from" datasette-url)
+  (println "🚀 Generating site from Cloudflare D1" database-id)
 
   ;; Clean and recreate generated content dirs (preserve static pages like about.md)
   (doseq [d ["c" "t"]]
@@ -226,6 +245,12 @@
         tags       (fetch-all-tags)]
 
     (println "Found" (count categories) "categories," (count tags) "tags")
+
+    ;; Guard against publishing an empty/broken site if the data source is
+    ;; unreachable or returns nothing (this is what broke the site once before).
+    (when (empty? categories)
+      (println "FATAL: no categories returned from D1 - refusing to build an empty site")
+      (System/exit 1))
 
     (generate-index-page categories tags)
     (println "✓ Index page")

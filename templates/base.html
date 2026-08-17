@@ -195,7 +195,9 @@
       resultItemSelector: ".search-result",
       activeClass:        "active",
       elasticlunrUrl:     "{{ get_url(path='elasticlunr.min.js') }}",
-      searchIndexUrl:     "{{ get_url(path='search_index.en.js') }}",
+      // Cache-bust the generated index per build so new listings show up in
+      // search immediately instead of waiting out the CDN/browser max-age.
+      searchIndexUrl:     "{{ get_url(path='search_index.en.js') }}?v={{ now() | date(format='%s') }}",
     });
 
     // Assemble mailto links from data-* parts so addresses never appear in the

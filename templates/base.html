@@ -6,7 +6,7 @@
     <title>{% block title %}{{ page.title | default(value="560005.town") }}{% endblock %}</title>
     <meta name="description" content="{% block description %}{{ page.description | default(value="Community directory for around North Bangalore") }}{% endblock %}">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="{{ get_url(path="style.css", cachebust=true) }}">
+    <link rel="stylesheet" href="{{ get_url(path="style.css", cachebust=true) | replace(from=config.base_url, to="") | safe }}">
 </head>
 <body>
     <header class="site-header">
@@ -194,10 +194,10 @@
       emptyTemplate:      "[data-search-empty-template]",
       resultItemSelector: ".search-result",
       activeClass:        "active",
-      elasticlunrUrl:     "{{ get_url(path='elasticlunr.min.js') }}",
+      elasticlunrUrl:     "{{ get_url(path='elasticlunr.min.js') | replace(from=config.base_url, to='') | safe }}",
       // Cache-bust the generated index per build so new listings show up in
       // search immediately instead of waiting out the CDN/browser max-age.
-      searchIndexUrl:     "{{ get_url(path='search_index.en.js') }}?v={{ now() | date(format='%s') }}",
+      searchIndexUrl:     "{{ get_url(path='search_index.en.js') | replace(from=config.base_url, to='') | safe }}?v={{ now() | date(format='%s') }}",
     });
 
     // Assemble mailto links from data-* parts so addresses never appear in the

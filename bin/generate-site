@@ -47,7 +47,8 @@
 (defn slug [s]
   (-> s str/lower-case str/trim
       (str/replace #"[^a-z0-9\s-]" "")
-      (str/replace #"\s+" "-")))
+      (str/replace #"[\s-]+" "-")
+      (str/replace #"^-|-$" "")))
 
 (defn truncate [s n]
   (when s (if (> (count s) n) (str (subs s 0 n) "...") s)))

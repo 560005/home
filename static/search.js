@@ -149,6 +149,7 @@ class Search {
   search() {
     const text = this.input.value.trim();
     this.active = -1;
+    this.lastChip = null;
     if (!this.listings || text.length < 2) { this.hide(); return; }
 
     const listings = this.query(this.listings, text).slice(0, this.maxResults);
@@ -199,25 +200,47 @@ class Search {
     return a;
   }
 
+  // The chip row counts as one row: Up/Down move between rows, Left/Right
+  // move between chips. Left/Right keep moving the text cursor otherwise.
   onKeydown(e) {
     const items = this.items();
+    const chips = this.results.querySelectorAll(".search-chip").length;
+    const onChip = this.active >= 0 && this.active < chips;
+    let next = null;
+
     switch (e.key) {
-      case "ArrowDown": if (items.length) { e.preventDefault(); this.setActive(this.active + 1); } break;
-      case "ArrowUp":   if (items.length) { e.preventDefault(); this.setActive(this.active - 1); } break;
+      case "ArrowDown":
+        if (onChip) next = chips < items.length ? chips : this.active;
+        else next = this.active + 1;
+        break;
+      case "ArrowUp":
+        if (this.active === chips && chips) next = this.lastChip ?? 0;
+        else if (onChip) next = -1;
+        else if (this.active === -1) next = items.length - 1;
+        else next = this.active - 1;
+        break;
+      case "ArrowRight": if (onChip) next = (this.active + 1) % chips; break;
+      case "ArrowLeft":  if (onChip) next = (this.active - 1 + chips) % chips; break;
       case "Enter": {
         // With nothing highlighted, Enter opens the top listing (or chip).
         const target = items[this.active] || this.results.querySelector("a.search-result:not(.search-chip)") || items[0];
         if (target) { e.preventDefault(); target.click(); }
-        break;
+        return;
       }
-      case "Escape": this.hide(); this.input.blur(); break;
+      case "Escape": this.hide(); this.input.blur(); return;
     }
+    if (next === null || !items.length) return;
+    e.preventDefault();
+    this.setActive(next);
+    if (next >= 0 && next < chips) this.lastChip = next;
   }
 
+  // -1 clears the highlight (back to the input); past either end wraps around.
   setActive(i) {
     const items = this.items();
     items.forEach((x) => x.classList.remove("active"));
-    this.active = (i + items.length) % items.length;
+    this.active = i === -1 ? -1 : (i + items.length) % items.length;
+    if (this.active < 0) return;
     items[this.active].classList.add("active");
     items[this.active].scrollIntoView({ block: "nearest" });
   }

@@ -14,10 +14,7 @@
 (def database-id (or (System/getenv "D1_DATABASE_ID") "9314d0ff-d359-4152-866f-ea8747b8208b"))
 (def api-token   (System/getenv "CLOUDFLARE_API_TOKEN"))
 (def content-dir "content")
-
-(when (or (str/blank? account-id) (str/blank? api-token))
-  (println "FATAL: CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN must be set")
-  (System/exit 1))
+(def search-index-file "static/search.json")
 
 (def d1-url
   (str "https://api.cloudflare.com/client/v4/accounts/" account-id
@@ -50,6 +47,9 @@
       (str/replace #"[\s-]+" "-")
       (str/replace #"^-|-$" "")))
 
+(defn listing-url [l]
+  (str "/c/" (:category_slug l) "/" (:id l) "-" (slug (:name l)) "/"))
+
 (defn truncate [s n]
   (when s (if (> (count s) n) (str (subs s 0 n) "...") s)))
 
@@ -74,6 +74,13 @@
           WHERE c.slug = ?
           ORDER BY l.name"
          [cat-slug]))
+
+(defn fetch-all-listings []
+  (query "SELECT l.id, l.name, l.description, l.address, l.tags, l.verified_by,
+                 c.slug as category_slug, c.name as category_name
+          FROM listings l
+          JOIN categories c ON l.category_id = c.id
+          ORDER BY l.id"))
 
 (defn fetch-all-tags []
   (query "SELECT json_each.value as tag, COUNT(*) as listing_count
@@ -157,7 +164,7 @@
                  (str "*" (count listings) " listings*\n\n"
                       (->> listings
                            (map (fn [l]
-                                  (str "## [" (:name l) "](" (:id l) "-" (slug (:name l)) "/)\n"
+                                  (str "## [" (:name l) "](" (listing-url l) ")\n"
                                        (when (:description l) (str (truncate (:description l) 200) "\n"))
                                        (when (seq (:phone l)) (str "📞 " (:phone l) "  "))
                                        (when (seq (:address l)) (str "📍 " (:address l)))
@@ -186,7 +193,7 @@
                (if (seq listings)
                  (->> listings
                       (map (fn [l]
-                             (let [url (str "/c/" (:category_slug l) "/" (:id l) "-" (slug (:name l)) "/")
+                             (let [url (listing-url l)
                                    tags (parse-tags (:tags l))]
                                (str "<article class=\"listing-card\">\n"
                                     "<h2><a href=\"" url "\">" (:name l) "</a></h2>\n"
@@ -225,9 +232,35 @@
                 "+++\n")]
     (spit (str content-dir "/_index.md") fm)))
 
+;; --- Search index ---
+;; One document per listing, plus tags and categories for the quick-jump chips.
+;; Read by static/search.js, which builds a MiniSearch index in the browser.
+
+(defn generate-search-index [categories tags]
+  (let [listings (fetch-all-listings)]
+    (spit search-index-file
+          (json/generate-string
+           {:listings   (for [l listings]
+                          {:id          (:id l)
+                           :name        (:name l)
+                           :url         (listing-url l)
+                           :category    (:category_name l)
+                           :tags        (or (parse-tags (:tags l)) [])
+                           :description (or (:description l) "")
+                           :address     (or (:address l) "")
+                           :verified    (boolean (seq (str (:verified_by l))))})
+            :tags       (for [t tags]
+                          {:name (:tag t) :url (str "/t/" (slug (:tag t)) "/") :count (:listing_count t)})
+            :categories (for [c categories :when (pos? (:listing_count c))]
+                          {:name (:name c) :url (str "/c/" (:slug c) "/") :count (:listing_count c)})}))
+    (println "✓ Search index (" (count listings) "listings)")))
+
 ;; --- Main ---
 
 (defn generate-all []
+  (when (or (str/blank? account-id) (str/blank? api-token))
+    (println "FATAL: CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN must be set")
+    (System/exit 1))
   (println "🚀 Generating site from Cloudflare D1" database-id)
 
   ;; Clean and recreate generated content dirs (preserve static pages like about.md)
@@ -262,6 +295,9 @@
     (doseq [tag tags] (generate-tag-page tag))
     (println "✓ Tag pages")
 
+    (generate-search-index categories tags)
+
     (println "✅ Done! Run 'zola serve' to preview.")))
 
-(generate-all)
+(when (= *file* (System/getProperty "babashka.file"))
+  (generate-all))

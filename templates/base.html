@@ -17,24 +17,14 @@
                     <a href="#" data-u="mail" data-d="kitallis.in" data-subject="New listing for 560005.town">Request a listing</a>
                 </div>
             </nav>
-            <div data-search class="search-wrapper">
+            <div data-search class="search-wrapper" data-index-url="/search.json?v={{ now() | date(format='%s') }}">
                 <label for="search-input" class="sr-only">Search listings</label>
-                <input type="search" id="search-input" name="q" data-search-input placeholder="Search listings..." autocomplete="off">
+                <input type="search" id="search-input" name="q" data-search-input placeholder="Search listings, e.g. dentist, plumber, tailor" autocomplete="off">
+                <kbd class="search-kbd" aria-hidden="true">/</kbd>
                 <div data-search-results role="listbox" aria-label="Search results" hidden></div>
             </div>
         </div>
     </header>
-
-    <template data-search-result-template>
-        <a class="search-result" role="option">
-            <strong data-field="title"></strong>
-            <span data-field="snippet"></span>
-        </a>
-    </template>
-
-    <template data-search-empty-template>
-        <div class="search-result">No results found.</div>
-    </template>
 
     <main class="container">
         {% block content %}
@@ -47,159 +37,9 @@
         <a href="/about/">about</a>
     </footer>
 
+    <script src="{{ get_url(path='minisearch.min.js') | replace(from=config.base_url, to='') | safe }}" defer></script>
+    <script src="{{ get_url(path='search.js', cachebust=true) | replace(from=config.base_url, to='') | safe }}" defer></script>
     <script>
-    class SearchComponent {
-      constructor(selector, {
-        inputSelector,
-        resultsSelector,
-        resultTemplate,
-        emptyTemplate,
-        resultItemSelector,
-        activeClass,
-        elasticlunrUrl,
-        searchIndexUrl,
-        minQueryLength = 2,
-        maxResults = 10,
-        snippetLength = 120,
-        scoreThreshold = 0.5,
-        renderResult = null,
-      }) {
-        this.container = document.querySelector(selector);
-        if (!this.container) return;
-
-        this.input = this.container.querySelector(inputSelector);
-        this.results = this.container.querySelector(resultsSelector);
-        this.resultTpl = document.querySelector(resultTemplate);
-        this.emptyTpl = document.querySelector(emptyTemplate);
-        this.resultItemSelector = resultItemSelector;
-        this.activeClass = activeClass || "active";
-
-        this.elasticlunrUrl = elasticlunrUrl;
-        this.searchIndexUrl = searchIndexUrl;
-        this.minQueryLength = minQueryLength;
-        this.maxResults = maxResults;
-        this.snippetLength = snippetLength;
-        this.scoreThreshold = scoreThreshold;
-        this.renderResult = renderResult || this.defaultRenderResult.bind(this);
-
-        this.index = null;
-        this.loaded = false;
-        this.active = -1;
-
-        this.input.addEventListener("focus", () => this.loadIndex());
-        this.input.addEventListener("input", () => { this.active = -1; this.search(); });
-        this.input.addEventListener("keydown", (e) => this.handleKeydown(e));
-        document.addEventListener("click", (e) => {
-          if (!this.container.contains(e.target)) this.clear();
-        });
-
-        // Warm the index in the background once the page is idle after first
-        // paint, so search is ready before the user interacts. focus remains a
-        // fallback trigger, and loadIndex() is idempotent.
-        const warm = () => this.loadIndex();
-        const schedule = () => (window.requestIdleCallback || window.setTimeout)(warm);
-        if (document.readyState === "complete") schedule();
-        else window.addEventListener("load", schedule);
-      }
-
-      loadIndex() {
-        if (this.loaded) return;
-        this.loaded = true;
-
-        const s1 = document.createElement("script");
-        s1.src = this.elasticlunrUrl;
-        s1.onload = () => {
-          const s2 = document.createElement("script");
-          s2.src = this.searchIndexUrl;
-          s2.onload = () => {
-            if (window.searchIndex) this.index = elasticlunr.Index.load(window.searchIndex);
-            // If the user already typed while the index was loading, run it now.
-            if (this.input.value.trim()) this.search();
-          };
-          document.body.appendChild(s2);
-        };
-        document.body.appendChild(s1);
-      }
-
-      search() {
-        const query = this.input.value.trim();
-        if (!this.index || query.length < this.minQueryLength) { this.clear(); return; }
-
-        const hits = this.index.search(query, { expand: false, bool: "AND" })
-          .filter(hit => hit.score > this.scoreThreshold);
-
-        this.clearResults();
-
-        if (hits.length === 0) {
-          this.results.appendChild(this.emptyTpl.content.cloneNode(true));
-        } else {
-          hits.slice(0, this.maxResults).forEach(hit => {
-            const doc = this.index.documentStore.getDoc(hit.ref);
-            const node = this.renderResult(this.resultTpl, doc, hit);
-            this.results.appendChild(node);
-          });
-        }
-        this.show();
-      }
-
-      defaultRenderResult(tpl, doc, hit) {
-        const node = tpl.content.cloneNode(true);
-        const link = node.querySelector("a");
-        link.href = hit.ref.replace(/^https?:\/\/[^\/]+/, "");
-        node.querySelector("[data-field='title']").textContent = doc.title || hit.ref;
-        node.querySelector("[data-field='snippet']").textContent =
-          (doc.body || "").substring(0, this.snippetLength).replace(/\n/g, " ") + "...";
-        return node;
-      }
-
-      handleKeydown(e) {
-        const items = this.items();
-        if (!items.length) return;
-
-        switch (e.key) {
-          case "ArrowDown": e.preventDefault(); this.setActive(this.active + 1); break;
-          case "ArrowUp":   e.preventDefault(); this.setActive(this.active - 1); break;
-          case "Enter":     if (this.active >= 0) { e.preventDefault(); items[this.active].click(); } break;
-          case "Escape":    this.clear(); break;
-        }
-      }
-
-      setActive(i) {
-        const items = this.items();
-        if (!items.length) return;
-        items.forEach(el => el.classList.remove(this.activeClass));
-        this.active = i >= items.length ? 0 : i < 0 ? items.length - 1 : i;
-        items[this.active].classList.add(this.activeClass);
-        items[this.active].scrollIntoView({ block: "nearest" });
-      }
-
-      items() { return this.results.querySelectorAll(this.resultItemSelector); }
-      show() { this.results.hidden = false; }
-
-      clear() {
-        this.clearResults();
-        this.results.hidden = true;
-        this.active = -1;
-      }
-
-      clearResults() {
-        while (this.results.firstChild) this.results.removeChild(this.results.firstChild);
-      }
-    }
-
-    new SearchComponent("[data-search]", {
-      inputSelector:      "[data-search-input]",
-      resultsSelector:    "[data-search-results]",
-      resultTemplate:     "[data-search-result-template]",
-      emptyTemplate:      "[data-search-empty-template]",
-      resultItemSelector: ".search-result",
-      activeClass:        "active",
-      elasticlunrUrl:     "{{ get_url(path='elasticlunr.min.js') | replace(from=config.base_url, to='') | safe }}",
-      // Cache-bust the generated index per build so new listings show up in
-      // search immediately instead of waiting out the CDN/browser max-age.
-      searchIndexUrl:     "{{ get_url(path='search_index.en.js') | replace(from=config.base_url, to='') | safe }}?v={{ now() | date(format='%s') }}",
-    });
-
     // Assemble mailto links from data-* parts so addresses never appear in the
     // raw HTML (basic scraper obfuscation, no external request). Keeps existing
     // link text; fills in the address where the link has none (e.g. /about).

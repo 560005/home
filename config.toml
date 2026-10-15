@@ -4,15 +4,10 @@ base_url = "https://560005.town"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+# Search uses static/search.json from bin/generate-site, not Zola's index
+build_search_index = false
 
 [markdown]
-
-[search]
-include_title = true
-include_description = true
-include_content = true
 
 [extra]
 # Put all your custom variables here

@@ -72,8 +72,11 @@ main.container { padding-bottom: 2em; }
   border-radius: 4px;
 }
 .search-hint svg { width: 0.75em; height: 0.75em; }
-/* Leave room for the browser's clear (×) button while there's a query */
-.search-hint-arrows { right: 30px; display: none; }
+.search-hint-arrows { display: none; }
+/* Leave room for the clear (×) button in browsers that draw one (not Firefox) */
+@supports selector(::-webkit-search-cancel-button) {
+  .search-hint-arrows { right: 30px; }
+}
 [data-search-input]:focus ~ .search-hint-slash,
 [data-search-input]:not(:placeholder-shown) ~ .search-hint-slash { display: none; }
 .search-wrapper:has([data-search-results]:not([hidden]) .search-result) .search-hint-arrows { display: flex; }

@@ -45,24 +45,40 @@ main.container { padding-bottom: 2em; }
   border-radius: 3px;
 }
 [data-search-input]:focus { outline: none; border-color: #00008b; }
-/* "/" shortcut hint; hidden while typing and on touch devices */
-.search-kbd {
+/* Keyboard hints inside the search box: "/" while idle, arrows while results
+   are open (left/right only when there are tag/category chips). Hidden on
+   touch devices. */
+.search-hint {
   position: absolute;
   top: 50%;
   right: 8px;
   transform: translateY(-50%);
-  padding: 1px 6px;
-  font: 600 0.8em/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  display: flex;
+  gap: 3px;
+  pointer-events: none;
+}
+.search-hint kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6em;
+  height: 1.6em;
+  padding: 0 5px;
+  font: 600 0.8em/1 ui-monospace, SFMono-Regular, Menlo, monospace;
   color: #444;
   background: #f3f4f6;
   border: 1px solid #d1d5db;
   border-bottom-width: 2px;
   border-radius: 4px;
-  pointer-events: none;
 }
-[data-search-input]:focus ~ .search-kbd,
-[data-search-input]:not(:placeholder-shown) ~ .search-kbd { display: none; }
-@media (hover: none) { .search-kbd { display: none; } }
+.search-hint svg { width: 0.75em; height: 0.75em; }
+/* Leave room for the browser's clear (×) button while there's a query */
+.search-hint-arrows { right: 30px; display: none; }
+[data-search-input]:focus ~ .search-hint-slash,
+[data-search-input]:not(:placeholder-shown) ~ .search-hint-slash { display: none; }
+.search-wrapper:has([data-search-results]:not([hidden]) .search-result) .search-hint-arrows { display: flex; }
+.search-wrapper:not(:has(.search-chip)) .search-hint-sideways { display: none; }
+@media (hover: none) { .search-hint { display: none !important; } }
 [data-search-results] {
   position: absolute;
   top: 100%;

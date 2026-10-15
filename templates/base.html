@@ -20,7 +20,12 @@
             <div data-search class="search-wrapper" data-index-url="/search.json?v={{ now() | date(format='%s') }}">
                 <label for="search-input" class="sr-only">Search listings</label>
                 <input type="search" id="search-input" name="q" data-search-input placeholder="Search listings, e.g. dentist, plumber, tailor" autocomplete="off">
-                <kbd class="search-kbd" aria-hidden="true">/</kbd>
+                <span class="search-hint search-hint-slash" aria-hidden="true"><kbd>/</kbd></span>
+                <span class="search-hint search-hint-arrows" aria-hidden="true">
+                    <kbd class="search-hint-sideways"><svg viewBox="0 0 10 16" fill="currentColor"><path d="M8.766.566A2 2 0 0 0 6.586 1L1 6.586a2 2 0 0 0 0 2.828L6.586 15A2 2 0 0 0 10 13.586V2.414A2 2 0 0 0 8.766.566Z"/></svg></kbd>
+                    <kbd class="search-hint-sideways"><svg viewBox="0 0 10 16" fill="currentColor"><path d="M3.414 1A2 2 0 0 0 0 2.414v11.172A2 2 0 0 0 3.414 15L9 9.414a2 2 0 0 0 0-2.828L3.414 1Z"/></svg></kbd>
+                    <kbd><svg viewBox="0 0 16 10" fill="currentColor"><path d="M15.434 1.235A2 2 0 0 0 13.586 0H2.414A2 2 0 0 0 1 3.414L6.586 9a2 2 0 0 0 2.828 0L15 3.414a2 2 0 0 0 .434-2.179Z"/></svg></kbd>
+                </span>
                 <div data-search-results role="listbox" aria-label="Search results" hidden></div>
             </div>
         </div>
